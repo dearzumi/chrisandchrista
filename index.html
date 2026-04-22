@@ -3,64 +3,242 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chris & Christa</title>
+    <title>Chris and Christa</title>
     <meta
       name="description"
-      content="Welcome to Chris and Christa's official website."
+      content="Official homepage for Chris and Christa. Follow our journey, stories, and latest updates."
     />
+    <meta property="og:title" content="Chris and Christa" />
+    <meta
+      property="og:description"
+      content="Follow Chris and Christa at @chrisandchrista."
+    />
+    <meta property="og:type" content="website" />
     <style>
       :root {
         color-scheme: light;
+        --bg: #f8f5f2;
+        --panel: #ffffff;
+        --text: #231f20;
+        --muted: #635a5d;
+        --brand: #dd2a7b;
+        --brand-dark: #8a3ab9;
+        --border: #ece5e7;
+        --shadow: 0 20px 45px rgba(35, 31, 32, 0.09);
       }
 
       * {
         box-sizing: border-box;
       }
 
+      html,
       body {
         margin: 0;
-        min-height: 100vh;
-        display: grid;
-        place-items: center;
+        padding: 0;
         font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        background: radial-gradient(circle at top, #fff9f2, #f6f7fb 50%, #eef1f8);
-        color: #1c1f2a;
+        background: linear-gradient(180deg, #fffaf7 0%, var(--bg) 100%);
+        color: var(--text);
       }
 
-      main {
-        width: min(720px, 92vw);
-        text-align: center;
-        padding: 3rem 1.5rem;
-        border-radius: 20px;
-        background: rgba(255, 255, 255, 0.78);
-        backdrop-filter: blur(6px);
-        border: 1px solid rgba(28, 31, 42, 0.08);
-        box-shadow: 0 18px 40px rgba(20, 24, 35, 0.1);
+      a {
+        color: inherit;
+      }
+
+      .page {
+        width: min(1024px, 92vw);
+        margin: 0 auto;
+        padding: 2rem 0 4rem;
+      }
+
+      .hero {
+        margin-top: 1rem;
+        padding: clamp(1.5rem, 3vw, 2.5rem);
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        box-shadow: var(--shadow);
+      }
+
+      .eyebrow {
+        display: inline-block;
+        margin-bottom: 0.75rem;
+        font-size: 0.86rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--brand-dark);
       }
 
       h1 {
-        font-size: clamp(2rem, 6vw, 3.25rem);
-        line-height: 1.1;
         margin: 0;
+        font-size: clamp(2rem, 5.8vw, 4rem);
+        line-height: 1.05;
         letter-spacing: -0.03em;
       }
 
-      p {
-        margin: 1rem auto 0;
-        font-size: clamp(1rem, 2.3vw, 1.2rem);
-        line-height: 1.6;
-        max-width: 46ch;
-        color: #464d63;
+      .subtitle {
+        margin-top: 1rem;
+        max-width: 60ch;
+        color: var(--muted);
+        font-size: clamp(1rem, 2vw, 1.2rem);
+        line-height: 1.65;
+      }
+
+      .cta-row {
+        margin-top: 1.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font-weight: 600;
+        border-radius: 999px;
+        padding: 0.78rem 1.2rem;
+        border: 1px solid transparent;
+        transition: transform 120ms ease, box-shadow 120ms ease;
+      }
+
+      .button:hover {
+        transform: translateY(-1px);
+      }
+
+      .button-primary {
+        background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+        color: #ffffff;
+        box-shadow: 0 10px 22px rgba(138, 58, 185, 0.22);
+      }
+
+      .button-secondary {
+        background: #ffffff;
+        border-color: var(--border);
+        color: var(--text);
+      }
+
+      .section {
+        margin-top: 1.5rem;
+        padding: clamp(1.25rem, 2.6vw, 2rem);
+        background: #ffffff;
+        border: 1px solid var(--border);
+        border-radius: 20px;
+      }
+
+      .section h2 {
+        margin: 0;
+        font-size: clamp(1.3rem, 2.8vw, 1.8rem);
+      }
+
+      .section p {
+        margin: 0.75rem 0 0;
+        color: var(--muted);
+        line-height: 1.65;
+      }
+
+      .link-grid {
+        margin-top: 1rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+        gap: 0.85rem;
+      }
+
+      .link-card {
+        display: block;
+        text-decoration: none;
+        background: #fcfafb;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 1rem;
+      }
+
+      .link-card strong {
+        display: block;
+        font-size: 1rem;
+      }
+
+      .link-card span {
+        display: block;
+        margin-top: 0.35rem;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      footer {
+        margin-top: 1.6rem;
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.92rem;
       }
     </style>
   </head>
   <body>
-    <main>
-      <h1>Chris &amp; Christa</h1>
-      <p>
-        Our website is now live. A full experience is coming soon, and we are
-        excited to share more with you.
-      </p>
+    <main class="page">
+      <section class="hero">
+        <span class="eyebrow">Official Homepage</span>
+        <h1>Chris and Christa</h1>
+        <p class="subtitle">
+          Welcome to our corner of the internet. Follow our latest stories,
+          updates, and everyday moments at <strong>@chrisandchrista</strong>.
+        </p>
+        <div class="cta-row">
+          <a
+            class="button button-primary"
+            href="https://instagram.com/chrisandchrista"
+            target="_blank"
+            rel="noreferrer"
+            >Follow on Instagram</a
+          >
+          <a
+            class="button button-secondary"
+            href="https://www.tiktok.com/@chrisandchrista"
+            target="_blank"
+            rel="noreferrer"
+            >Watch on TikTok</a
+          >
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Find us online</h2>
+        <p>
+          We are using the same handle everywhere to keep it simple. More links
+          and features are coming soon.
+        </p>
+        <div class="link-grid">
+          <a
+            class="link-card"
+            href="https://instagram.com/chrisandchrista"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <strong>Instagram</strong>
+            <span>@chrisandchrista</span>
+          </a>
+          <a
+            class="link-card"
+            href="https://www.tiktok.com/@chrisandchrista"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <strong>TikTok</strong>
+            <span>@chrisandchrista</span>
+          </a>
+          <a
+            class="link-card"
+            href="https://www.youtube.com/@chrisandchrista"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <strong>YouTube</strong>
+            <span>@chrisandchrista</span>
+          </a>
+        </div>
+      </section>
+
+      <footer>Chris and Christa</footer>
     </main>
   </body>
 </html>
