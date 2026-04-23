@@ -14,6 +14,12 @@
       content="A couture-inspired luxury brand experience. Follow @chrisandchrista."
     />
     <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
       :root {
         color-scheme: dark;
@@ -29,6 +35,10 @@
         --muted: #c9b082;
         --muted-soft: #b59a67;
         --shadow: 0 24px 54px rgba(0, 0, 0, 0.58);
+        --space-1: clamp(0.7rem, 1.2vw, 0.95rem);
+        --space-2: clamp(1rem, 1.8vw, 1.35rem);
+        --space-3: clamp(1.2rem, 2.4vw, 1.9rem);
+        --space-4: clamp(1.6rem, 3.4vw, 2.7rem);
       }
 
       * {
@@ -71,7 +81,7 @@
         justify-content: space-between;
         align-items: center;
         gap: 0.8rem;
-        padding: 0.9rem 1rem;
+        padding: var(--space-1) var(--space-2);
         border-bottom: 1px solid var(--line);
       }
 
@@ -108,7 +118,7 @@
 
       .hero {
         position: relative;
-        padding: clamp(1.2rem, 3vw, 2.2rem);
+        padding: var(--space-4) var(--space-3) var(--space-3);
       }
 
       .hero::before {
@@ -119,12 +129,12 @@
           110deg,
           rgba(255, 255, 255, 0) 0%,
           rgba(255, 255, 255, 0) 42%,
-          rgba(245, 227, 174, 0.11) 50%,
+          rgba(245, 227, 174, 0.1) 50%,
           rgba(255, 255, 255, 0) 58%,
           rgba(255, 255, 255, 0) 100%
         );
         transform: translateX(-120%);
-        animation: goldSweep 7s ease-in-out infinite;
+        animation: goldSweep 7.5s ease-in-out infinite;
         pointer-events: none;
       }
 
@@ -144,7 +154,7 @@
       .logo-fallback {
         display: none;
         text-align: center;
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: "Cormorant Garamond", Georgia, serif;
         font-size: clamp(2.1rem, 7vw, 4.4rem);
         letter-spacing: 0.14em;
         color: transparent;
@@ -154,22 +164,23 @@
       }
 
       .eyebrow {
-        margin-top: 0.95rem;
+        margin-top: var(--space-2);
         text-align: center;
-        letter-spacing: 0.18em;
+        letter-spacing: 0.2em;
         text-transform: uppercase;
         font-size: 0.73rem;
         color: var(--muted-soft);
       }
 
       h1 {
-        margin: 0.74rem auto 0;
+        margin: 0.4rem auto 0;
         max-width: 15ch;
         text-align: center;
-        font-family: Georgia, "Times New Roman", serif;
-        font-size: clamp(2.1rem, 5.3vw, 4.45rem);
-        letter-spacing: 0.02em;
-        line-height: 1.05;
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: clamp(2.3rem, 5.4vw, 4.8rem);
+        font-weight: 600;
+        letter-spacing: 0.01em;
+        line-height: 1;
         color: transparent;
         background: linear-gradient(145deg, var(--gold-1), var(--gold-2), var(--gold-3));
         -webkit-background-clip: text;
@@ -177,7 +188,7 @@
       }
 
       .lead {
-        margin: 1rem auto 0;
+        margin: var(--space-2) auto 0;
         max-width: 68ch;
         text-align: center;
         color: #dfcb9f;
@@ -186,7 +197,7 @@
       }
 
       .hero-actions {
-        margin-top: 1.3rem;
+        margin-top: var(--space-2);
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
@@ -214,15 +225,15 @@
 
       .content {
         border-top: 1px solid var(--line);
-        padding: 1.2rem;
+        padding: var(--space-3);
       }
 
       .lookbook {
-        margin-bottom: 1rem;
+        margin-bottom: var(--space-2);
         border: 1px solid var(--line);
         border-radius: 20px;
         background: var(--panel-soft);
-        padding: 1rem;
+        padding: var(--space-2);
       }
 
       .lookbook-top {
@@ -235,12 +246,14 @@
 
       .lookbook h2 {
         margin: 0;
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: 2rem;
+        font-weight: 600;
+        letter-spacing: 0.01em;
         color: transparent;
         background: linear-gradient(145deg, var(--gold-1), var(--gold-2));
         -webkit-background-clip: text;
         background-clip: text;
-        font-size: 1.4rem;
       }
 
       .lookbook p {
@@ -249,36 +262,64 @@
         line-height: 1.68;
       }
 
-      .lookbook-strip {
-        margin-top: 0.8rem;
+      .campaign-grid {
+        margin-top: var(--space-2);
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 0.68rem;
       }
 
-      .look {
-        min-height: 118px;
+      .campaign-card {
+        min-height: 170px;
         border-radius: 14px;
         border: 1px solid var(--line);
         position: relative;
         overflow: hidden;
         background: linear-gradient(145deg, rgba(34, 30, 22, 0.8), rgba(16, 16, 16, 0.85));
+        transform: perspective(700px) rotateX(0) rotateY(0);
+        transition: transform 180ms ease, border-color 160ms ease, box-shadow 160ms ease;
       }
 
-      .look::before {
+      .campaign-card::before {
         content: "";
         position: absolute;
         inset: 0;
-        background: radial-gradient(circle at 20% 25%, rgba(249, 235, 190, 0.24), transparent 46%);
+        background: radial-gradient(circle at 20% 25%, rgba(249, 235, 190, 0.25), transparent 50%);
       }
 
-      .look span {
+      .campaign-card::after {
+        content: "";
         position: absolute;
-        left: 0.68rem;
-        bottom: 0.62rem;
-        font-size: 0.78rem;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.68));
+      }
+
+      .campaign-card:hover {
+        border-color: var(--line-strong);
+        box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
+      }
+
+      .campaign-content {
+        position: absolute;
+        z-index: 1;
+        left: 0.82rem;
+        right: 0.82rem;
+        bottom: 0.78rem;
+      }
+
+      .campaign-content strong {
+        display: block;
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: 1.22rem;
+        color: #f4dfad;
+      }
+
+      .campaign-content span {
+        display: block;
+        margin-top: 0.22rem;
+        font-size: 0.77rem;
         color: var(--muted);
-        letter-spacing: 0.08em;
+        letter-spacing: 0.09em;
         text-transform: uppercase;
       }
 
@@ -292,17 +333,19 @@
         border: 1px solid var(--line);
         border-radius: 18px;
         background: var(--panel);
-        padding: 1.02rem;
+        padding: var(--space-2);
       }
 
       .section h3 {
         margin: 0;
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: 1.96rem;
+        font-weight: 600;
+        letter-spacing: 0.01em;
         color: transparent;
         background: linear-gradient(145deg, var(--gold-1), var(--gold-2));
         -webkit-background-clip: text;
         background-clip: text;
-        font-size: 1.32rem;
       }
 
       .section p {
@@ -377,7 +420,7 @@
       }
 
       .cta-panels {
-        margin-top: 1rem;
+        margin-top: var(--space-2);
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 0.82rem;
@@ -387,14 +430,16 @@
         border: 1px solid var(--line);
         border-radius: 18px;
         background: linear-gradient(145deg, rgba(28, 26, 20, 0.8), rgba(16, 16, 16, 0.88));
-        padding: 1rem;
+        padding: var(--space-2);
       }
 
       .cta-card h4 {
         margin: 0;
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: 1.65rem;
+        font-weight: 600;
+        line-height: 1.05;
         color: var(--gold-1);
-        font-size: 1.16rem;
       }
 
       .cta-card p {
@@ -409,7 +454,7 @@
       }
 
       .footer {
-        margin-top: 0.95rem;
+        margin-top: var(--space-2);
         padding-top: 0.95rem;
         border-top: 1px solid var(--line);
         text-align: center;
@@ -443,18 +488,31 @@
         }
       }
 
+      @media (max-width: 760px) {
+        .campaign-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
       @media (max-width: 620px) {
         .page {
           width: 94vw;
         }
 
-        .lookbook-strip {
-          grid-template-columns: 1fr;
-        }
-
         .hero,
         .content {
-          padding: 0.92rem;
+          padding: var(--space-2);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .hero::before {
+          animation: none;
+        }
+
+        .campaign-card {
+          transition: none;
+          transform: none !important;
         }
       }
     </style>
@@ -510,10 +568,25 @@
               A preview of silhouette directions for upcoming releases. Crafted to convey
               presence, precision, and timeless confidence.
             </p>
-            <div class="lookbook-strip">
-              <div class="look"><span data-i18n="look1">Noir Tailored</span></div>
-              <div class="look"><span data-i18n="look2">Golden Evening</span></div>
-              <div class="look"><span data-i18n="look3">Resort Fluid</span></div>
+            <div class="campaign-grid">
+              <article class="campaign-card">
+                <div class="campaign-content">
+                  <strong data-i18n="campaign1Title">Noir Tailored</strong>
+                  <span data-i18n="campaign1Sub">Campaign I</span>
+                </div>
+              </article>
+              <article class="campaign-card">
+                <div class="campaign-content">
+                  <strong data-i18n="campaign2Title">Golden Evening</strong>
+                  <span data-i18n="campaign2Sub">Campaign II</span>
+                </div>
+              </article>
+              <article class="campaign-card">
+                <div class="campaign-content">
+                  <strong data-i18n="campaign3Title">Resort Fluid</strong>
+                  <span data-i18n="campaign3Sub">Campaign III</span>
+                </div>
+              </article>
             </div>
           </section>
 
@@ -643,9 +716,12 @@
           lookbookTag: "Seasonal Editorial 2026",
           lookbookBody:
             "A preview of silhouette directions for upcoming releases. Crafted to convey presence, precision, and timeless confidence.",
-          look1: "Noir Tailored",
-          look2: "Golden Evening",
-          look3: "Resort Fluid",
+          campaign1Title: "Noir Tailored",
+          campaign1Sub: "Campaign I",
+          campaign2Title: "Golden Evening",
+          campaign2Sub: "Campaign II",
+          campaign3Title: "Resort Fluid",
+          campaign3Sub: "Campaign III",
           collectionTitle: "Signature Collections",
           collectionBody:
             "Designed for distinguished wardrobes, each line merges precision tailoring, elevated textiles, and restrained sophistication.",
@@ -682,9 +758,12 @@
           lookbookTag: "시즈널 에디토리얼 2026",
           lookbookBody:
             "다가올 릴리즈를 위한 실루엣 방향을 미리 선보입니다. 존재감, 정밀함, 그리고 시대를 초월한 자신감을 담아냈습니다.",
-          look1: "누아르 테일러드",
-          look2: "골든 이브닝",
-          look3: "리조트 플루이드",
+          campaign1Title: "누아르 테일러드",
+          campaign1Sub: "캠페인 I",
+          campaign2Title: "골든 이브닝",
+          campaign2Sub: "캠페인 II",
+          campaign3Title: "리조트 플루이드",
+          campaign3Sub: "캠페인 III",
           collectionTitle: "시그니처 컬렉션",
           collectionBody:
             "정교한 테일러링, 고급 텍스타일, 절제된 세련미를 결합해 품격 있는 럭셔리 스타일을 제안합니다.",
@@ -713,6 +792,8 @@
 
       const languageButtons = document.querySelectorAll(".lang-btn");
       const translatable = document.querySelectorAll("[data-i18n]");
+      const campaignCards = document.querySelectorAll(".campaign-card");
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
       function setLanguage(lang) {
         document.documentElement.lang = lang;
@@ -730,6 +811,22 @@
       languageButtons.forEach((button) => {
         button.addEventListener("click", () => setLanguage(button.dataset.lang));
       });
+
+      if (!reduceMotion) {
+        campaignCards.forEach((card) => {
+          card.addEventListener("mousemove", (event) => {
+            const rect = card.getBoundingClientRect();
+            const x = (event.clientX - rect.left) / rect.width - 0.5;
+            const y = (event.clientY - rect.top) / rect.height - 0.5;
+            const rotateY = x * 8;
+            const rotateX = y * -8;
+            card.style.transform = `perspective(700px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+          });
+          card.addEventListener("mouseleave", () => {
+            card.style.transform = "perspective(700px) rotateX(0deg) rotateY(0deg)";
+          });
+        });
+      }
     </script>
   </body>
 </html>
