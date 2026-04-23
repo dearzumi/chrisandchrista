@@ -3,29 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chris and Christa | Official</title>
+    <title>Chris and Christa | Luxury Fashion House</title>
     <meta
       name="description"
-      content="Luxury official website for Chris and Christa. Follow @chrisandchrista for stories, updates, and elegant moments."
+      content="Chris and Christa is a luxury clothing brand defining modern elegance through couture detail, refined tailoring, and elevated storytelling."
     />
-    <meta property="og:title" content="Chris and Christa | Official" />
+    <meta property="og:title" content="Chris and Christa | Luxury Fashion House" />
     <meta
       property="og:description"
-      content="Follow Chris and Christa at @chrisandchrista."
+      content="A couture-inspired luxury brand experience. Follow @chrisandchrista."
     />
     <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
       :root {
         color-scheme: dark;
-        --bg: #070707;
-        --bg-soft: #101010;
-        --panel: rgba(17, 17, 17, 0.8);
-        --text: #efe3c2;
-        --muted: #bda77a;
-        --line: rgba(230, 199, 136, 0.28);
-        --gold-1: #f7e7b2;
-        --gold-2: #cfab5a;
-        --gold-3: #8f6a2c;
+        --bg: #060606;
+        --panel: rgba(18, 18, 18, 0.9);
+        --panel-soft: rgba(14, 14, 14, 0.78);
+        --line: rgba(224, 186, 108, 0.3);
+        --line-strong: rgba(224, 186, 108, 0.55);
+        --gold-1: #f9ebbe;
+        --gold-2: #e0ba6c;
+        --gold-3: #896128;
+        --text: #f5ead1;
+        --muted: #c9b082;
+        --muted-soft: #b59a67;
+        --shadow: 0 24px 54px rgba(0, 0, 0, 0.58);
+        --space-1: clamp(0.7rem, 1.2vw, 0.95rem);
+        --space-2: clamp(1rem, 1.8vw, 1.35rem);
+        --space-3: clamp(1.2rem, 2.4vw, 1.9rem);
+        --space-4: clamp(1.6rem, 3.4vw, 2.7rem);
       }
 
       * {
@@ -36,10 +49,11 @@
       body {
         margin: 0;
         padding: 0;
+        min-height: 100%;
         background:
-          radial-gradient(circle at 20% 0%, rgba(206, 167, 88, 0.17), transparent 40%),
-          radial-gradient(circle at 80% 100%, rgba(206, 167, 88, 0.12), transparent 45%),
-          var(--bg);
+          radial-gradient(circle at 8% 0%, rgba(224, 186, 108, 0.16), transparent 33%),
+          radial-gradient(circle at 92% 100%, rgba(224, 186, 108, 0.1), transparent 36%),
+          linear-gradient(180deg, #080808 0%, var(--bg) 100%);
         color: var(--text);
         font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       }
@@ -49,15 +63,34 @@
       }
 
       .page {
-        width: min(1100px, 92vw);
+        width: min(1200px, 92vw);
         margin: 0 auto;
-        padding: 2.2rem 0 3.5rem;
+        padding: 1.05rem 0 3.2rem;
       }
 
-      .top-row {
+      .frame {
+        border: 1px solid var(--line);
+        border-radius: 32px;
+        overflow: hidden;
+        background: linear-gradient(180deg, rgba(16, 16, 16, 0.96), rgba(10, 10, 10, 0.97));
+        box-shadow: var(--shadow);
+      }
+
+      .header {
         display: flex;
-        justify-content: flex-end;
-        margin-bottom: 0.8rem;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.8rem;
+        padding: var(--space-1) var(--space-2);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .brand-mini {
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        font-size: 0.71rem;
+        font-weight: 700;
+        color: var(--muted);
       }
 
       .lang-switch {
@@ -69,326 +102,700 @@
 
       .lang-btn {
         border: 0;
-        color: var(--muted);
-        background: transparent;
-        font-size: 0.8rem;
-        letter-spacing: 0.08em;
-        font-weight: 700;
-        padding: 0.45rem 0.85rem;
         cursor: pointer;
+        background: transparent;
+        color: var(--muted);
+        padding: 0.42rem 0.86rem;
+        font-size: 0.78rem;
+        letter-spacing: 0.09em;
+        font-weight: 700;
       }
 
       .lang-btn[aria-pressed="true"] {
-        background: linear-gradient(135deg, var(--gold-2), var(--gold-3));
-        color: #111;
+        color: #131313;
+        background: linear-gradient(145deg, var(--gold-1), var(--gold-2));
       }
 
       .hero {
-        border: 1px solid var(--line);
-        background: linear-gradient(180deg, rgba(23, 23, 23, 0.9), rgba(12, 12, 12, 0.88));
-        border-radius: 28px;
-        box-shadow: 0 24px 48px rgba(0, 0, 0, 0.5);
-        padding: clamp(1.4rem, 3vw, 2.2rem);
+        position: relative;
+        padding: var(--space-4) var(--space-3) var(--space-3);
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          110deg,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 0) 42%,
+          rgba(245, 227, 174, 0.1) 50%,
+          rgba(255, 255, 255, 0) 58%,
+          rgba(255, 255, 255, 0) 100%
+        );
+        transform: translateX(-120%);
+        animation: goldSweep 7.5s ease-in-out infinite;
+        pointer-events: none;
       }
 
       .logo-wrap {
         display: flex;
         justify-content: center;
-        margin-bottom: 1rem;
+        align-items: center;
       }
 
       .logo {
-        width: min(460px, 100%);
+        width: min(540px, 100%);
         max-height: 360px;
         object-fit: contain;
-        filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.5));
+        filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.6));
       }
 
       .logo-fallback {
         display: none;
-        width: 100%;
         text-align: center;
-        font-family: Georgia, "Times New Roman", serif;
-        font-size: clamp(2rem, 7vw, 4rem);
-        letter-spacing: 0.08em;
-        color: transparent;
-        background: linear-gradient(135deg, var(--gold-1), var(--gold-2), var(--gold-3));
-        -webkit-background-clip: text;
-        background-clip: text;
-      }
-
-      .eyebrow {
-        text-transform: uppercase;
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: clamp(2.1rem, 7vw, 4.4rem);
         letter-spacing: 0.14em;
-        font-size: 0.77rem;
-        color: var(--muted);
-        text-align: center;
-      }
-
-      h1 {
-        margin: 0.7rem 0 0;
-        text-align: center;
-        font-size: clamp(2rem, 6vw, 4.3rem);
-        letter-spacing: 0.01em;
-        line-height: 1.05;
-        font-family: Georgia, "Times New Roman", serif;
         color: transparent;
         background: linear-gradient(145deg, var(--gold-1), var(--gold-2), var(--gold-3));
         -webkit-background-clip: text;
         background-clip: text;
       }
 
-      .subtitle {
-        margin: 1rem auto 0;
-        max-width: 66ch;
+      .eyebrow {
+        margin-top: var(--space-2);
         text-align: center;
-        color: #dbc596;
-        line-height: 1.72;
-        font-size: clamp(1rem, 2vw, 1.14rem);
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        font-size: 0.73rem;
+        color: var(--muted-soft);
       }
 
-      .cta-row {
-        margin-top: 1.4rem;
+      h1 {
+        margin: 0.4rem auto 0;
+        max-width: 15ch;
+        text-align: center;
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: clamp(2.3rem, 5.4vw, 4.8rem);
+        font-weight: 600;
+        letter-spacing: 0.01em;
+        line-height: 1;
+        color: transparent;
+        background: linear-gradient(145deg, var(--gold-1), var(--gold-2), var(--gold-3));
+        -webkit-background-clip: text;
+        background-clip: text;
+      }
+
+      .lead {
+        margin: var(--space-2) auto 0;
+        max-width: 68ch;
+        text-align: center;
+        color: #dfcb9f;
+        line-height: 1.76;
+        font-size: clamp(1rem, 2vw, 1.16rem);
+      }
+
+      .hero-actions {
+        margin-top: var(--space-2);
         display: flex;
         justify-content: center;
-        gap: 0.78rem;
         flex-wrap: wrap;
+        gap: 0.72rem;
       }
 
-      .button {
+      .btn {
         text-decoration: none;
-        font-weight: 700;
-        font-size: 0.93rem;
         border-radius: 999px;
-        padding: 0.78rem 1.2rem;
-        transition: transform 120ms ease, box-shadow 120ms ease;
+        padding: 0.76rem 1.2rem;
+        font-size: 0.9rem;
+        font-weight: 700;
       }
 
-      .button:hover {
-        transform: translateY(-1px);
-      }
-
-      .button-primary {
-        color: #111;
+      .btn-primary {
+        color: #101010;
         background: linear-gradient(145deg, var(--gold-1), var(--gold-2));
-        box-shadow: 0 10px 22px rgba(207, 171, 90, 0.35);
+        box-shadow: 0 10px 24px rgba(224, 186, 108, 0.35);
       }
 
-      .button-secondary {
-        color: var(--text);
+      .btn-ghost {
         border: 1px solid var(--line);
-        background: rgba(34, 34, 34, 0.55);
+        background: rgba(30, 30, 30, 0.52);
       }
 
-      .grid {
-        margin-top: 1.2rem;
-        display: grid;
-        gap: 1rem;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      .content {
+        border-top: 1px solid var(--line);
+        padding: var(--space-3);
       }
 
-      .section {
+      .lookbook {
+        margin-bottom: var(--space-2);
         border: 1px solid var(--line);
-        background: var(--panel);
         border-radius: 20px;
-        padding: 1.1rem 1.1rem 1.2rem;
+        background: var(--panel-soft);
+        padding: var(--space-2);
       }
 
-      h2 {
+      .lookbook-top {
+        display: flex;
+        justify-content: space-between;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+        align-items: baseline;
+      }
+
+      .lookbook h2 {
         margin: 0;
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: 2rem;
+        font-weight: 600;
+        letter-spacing: 0.01em;
         color: transparent;
         background: linear-gradient(145deg, var(--gold-1), var(--gold-2));
         -webkit-background-clip: text;
         background-clip: text;
-        font-size: 1.45rem;
+      }
+
+      .lookbook p {
+        margin: 0.45rem 0 0;
+        color: #d8c292;
+        line-height: 1.68;
+      }
+
+      .campaign-grid {
+        margin-top: var(--space-2);
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.68rem;
+      }
+
+      .campaign-card {
+        min-height: 170px;
+        border-radius: 14px;
+        border: 1px solid var(--line);
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(145deg, rgba(34, 30, 22, 0.8), rgba(16, 16, 16, 0.85));
+        transform: perspective(700px) rotateX(0) rotateY(0);
+        transition: transform 180ms ease, border-color 160ms ease, box-shadow 160ms ease;
+      }
+
+      .campaign-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at 20% 25%, rgba(249, 235, 190, 0.25), transparent 50%);
+      }
+
+      .campaign-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.68));
+      }
+
+      .campaign-card:hover {
+        border-color: var(--line-strong);
+        box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
+      }
+
+      .campaign-content {
+        position: absolute;
+        z-index: 1;
+        left: 0.82rem;
+        right: 0.82rem;
+        bottom: 0.78rem;
+      }
+
+      .campaign-content strong {
+        display: block;
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: 1.22rem;
+        color: #f4dfad;
+      }
+
+      .campaign-content span {
+        display: block;
+        margin-top: 0.22rem;
+        font-size: 0.77rem;
+        color: var(--muted);
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 1.25fr 1fr;
+        gap: 1rem;
+      }
+
+      .section {
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: var(--panel);
+        padding: var(--space-2);
+      }
+
+      .section h3 {
+        margin: 0;
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: 1.96rem;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+        color: transparent;
+        background: linear-gradient(145deg, var(--gold-1), var(--gold-2));
+        -webkit-background-clip: text;
+        background-clip: text;
       }
 
       .section p {
-        margin: 0.7rem 0 0;
-        color: #cfbb92;
+        margin: 0.62rem 0 0;
+        color: #d3bc8b;
         line-height: 1.7;
+      }
+
+      .collection-list {
+        margin-top: 0.78rem;
+        display: grid;
+        gap: 0.68rem;
+      }
+
+      .collection {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: rgba(25, 25, 25, 0.86);
+        padding: 0.73rem;
+      }
+
+      .collection strong {
+        display: block;
+        color: var(--text);
+      }
+
+      .collection span {
+        display: block;
+        margin-top: 0.3rem;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .pillars {
+        margin: 0.74rem 0 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 0.56rem;
+      }
+
+      .pillars li {
+        border-left: 2px solid var(--line-strong);
+        padding-left: 0.62rem;
+        color: #d7c394;
+        line-height: 1.58;
       }
 
       .socials {
         margin-top: 0.8rem;
         display: grid;
-        gap: 0.66rem;
+        gap: 0.56rem;
       }
 
       .social {
+        display: block;
         text-decoration: none;
         border: 1px solid var(--line);
         border-radius: 12px;
-        padding: 0.72rem 0.8rem;
-        background: rgba(25, 25, 25, 0.76);
+        background: rgba(23, 23, 23, 0.9);
+        padding: 0.66rem 0.72rem;
       }
 
       .social strong {
         display: block;
-        color: var(--text);
       }
 
       .social span {
         display: block;
-        color: var(--muted);
         margin-top: 0.2rem;
-      }
-
-      footer {
-        margin-top: 1.4rem;
-        text-align: center;
         color: var(--muted);
-        letter-spacing: 0.03em;
-        font-size: 0.92rem;
       }
 
-      @media (max-width: 540px) {
+      .cta-panels {
+        margin-top: var(--space-2);
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.82rem;
+      }
+
+      .cta-card {
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: linear-gradient(145deg, rgba(28, 26, 20, 0.8), rgba(16, 16, 16, 0.88));
+        padding: var(--space-2);
+      }
+
+      .cta-card h4 {
+        margin: 0;
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: 1.65rem;
+        font-weight: 600;
+        line-height: 1.05;
+        color: var(--gold-1);
+      }
+
+      .cta-card p {
+        margin: 0.54rem 0 0;
+        color: #d8c59a;
+        line-height: 1.62;
+      }
+
+      .cta-card .btn {
+        margin-top: 0.72rem;
+        display: inline-block;
+      }
+
+      .footer {
+        margin-top: var(--space-2);
+        padding-top: 0.95rem;
+        border-top: 1px solid var(--line);
+        text-align: center;
+        font-size: 0.9rem;
+        color: var(--muted);
+        letter-spacing: 0.05em;
+      }
+
+      @keyframes goldSweep {
+        0% {
+          transform: translateX(-120%);
+        }
+        46% {
+          transform: translateX(-120%);
+        }
+        54% {
+          transform: translateX(120%);
+        }
+        100% {
+          transform: translateX(120%);
+        }
+      }
+
+      @media (max-width: 920px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+
+        .cta-panels {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .campaign-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 620px) {
         .page {
-          padding-top: 1.1rem;
+          width: 94vw;
+        }
+
+        .hero,
+        .content {
+          padding: var(--space-2);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .hero::before {
+          animation: none;
+        }
+
+        .campaign-card {
+          transition: none;
+          transform: none !important;
         }
       }
     </style>
   </head>
   <body>
     <main class="page">
-      <div class="top-row">
-        <div class="lang-switch" role="group" aria-label="Language selector">
-          <button class="lang-btn" type="button" data-lang="en" aria-pressed="true">
-            EN
-          </button>
-          <button class="lang-btn" type="button" data-lang="ko" aria-pressed="false">
-            KR
-          </button>
-        </div>
-      </div>
+      <div class="frame">
+        <header class="header">
+          <div class="brand-mini" data-i18n="brandMini">Luxury Fashion House</div>
+          <div class="lang-switch" role="group" aria-label="Language selector">
+            <button class="lang-btn" type="button" data-lang="en" aria-pressed="true">
+              EN
+            </button>
+            <button class="lang-btn" type="button" data-lang="ko" aria-pressed="false">
+              KR
+            </button>
+          </div>
+        </header>
 
-      <section class="hero">
-        <div class="logo-wrap">
-          <img
-            src="logo.png"
-            alt="Chris and Christa logo"
-            class="logo"
-            onerror="this.style.display='none';this.nextElementSibling.style.display='block';"
-          />
-          <span class="logo-fallback">C &amp; C</span>
-        </div>
-
-        <div class="eyebrow" data-i18n="eyebrow">Official Luxury Website</div>
-        <h1 data-i18n="title">Chris and Christa</h1>
-        <p class="subtitle" data-i18n="subtitle">
-          Welcome to our official space. Discover stories, moments, and premium
-          updates from our journey together at @chrisandchrista.
-        </p>
-        <div class="cta-row">
-          <a
-            class="button button-primary"
-            href="https://instagram.com/chrisandchrista"
-            target="_blank"
-            rel="noreferrer"
-            data-i18n="ctaInstagram"
-            >Follow on Instagram</a
-          >
-          <a
-            class="button button-secondary"
-            href="https://www.tiktok.com/@chrisandchrista"
-            target="_blank"
-            rel="noreferrer"
-            data-i18n="ctaTiktok"
-            >Watch on TikTok</a
-          >
-        </div>
-      </section>
-
-      <div class="grid">
-        <section class="section">
-          <h2 data-i18n="storyTitle">Our Story</h2>
-          <p data-i18n="storyBody">
-            This is the beginning of a refined digital home for Chris and Christa.
-            We are building a premium experience with curated content, personal
-            updates, and exclusive moments.
+        <section class="hero">
+          <div class="logo-wrap">
+            <img
+              src="logo.png"
+              alt="Chris and Christa logo"
+              class="logo"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='block';"
+            />
+            <span class="logo-fallback">C &amp; C</span>
+          </div>
+          <div class="eyebrow" data-i18n="eyebrow">Chris and Christa Atelier</div>
+          <h1 data-i18n="title">Editorial Luxury for the Modern Muse</h1>
+          <p class="lead" data-i18n="lead">
+            Chris and Christa defines luxury dressing through couture-inspired silhouettes,
+            refined tailoring, and statement minimalism shaped for iconic moments.
           </p>
-        </section>
-
-        <section class="section">
-          <h2 data-i18n="findTitle">Find Us Online</h2>
-          <p data-i18n="findBody">
-            Follow our official handle below. We use one name across every
-            platform: @chrisandchrista.
-          </p>
-          <div class="socials">
-            <a
-              class="social"
-              href="https://instagram.com/chrisandchrista"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <strong>Instagram</strong>
-              <span>@chrisandchrista</span>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#collections" data-i18n="ctaCollection">
+              Explore Collection
             </a>
-            <a
-              class="social"
-              href="https://www.tiktok.com/@chrisandchrista"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <strong>TikTok</strong>
-              <span>@chrisandchrista</span>
-            </a>
-            <a
-              class="social"
-              href="https://www.youtube.com/@chrisandchrista"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <strong>YouTube</strong>
-              <span>@chrisandchrista</span>
+            <a class="btn btn-ghost" href="#contact" data-i18n="ctaContact">
+              Private Contact
             </a>
           </div>
         </section>
-      </div>
 
-      <footer data-i18n="footer">Chris and Christa - Official</footer>
+        <div class="content">
+          <section class="lookbook">
+            <div class="lookbook-top">
+              <h2 data-i18n="lookbookTitle">Lookbook Prelude</h2>
+              <span class="brand-mini" data-i18n="lookbookTag">Seasonal Editorial 2026</span>
+            </div>
+            <p data-i18n="lookbookBody">
+              A preview of silhouette directions for upcoming releases. Crafted to convey
+              presence, precision, and timeless confidence.
+            </p>
+            <div class="campaign-grid">
+              <article class="campaign-card">
+                <div class="campaign-content">
+                  <strong data-i18n="campaign1Title">Noir Tailored</strong>
+                  <span data-i18n="campaign1Sub">Campaign I</span>
+                </div>
+              </article>
+              <article class="campaign-card">
+                <div class="campaign-content">
+                  <strong data-i18n="campaign2Title">Golden Evening</strong>
+                  <span data-i18n="campaign2Sub">Campaign II</span>
+                </div>
+              </article>
+              <article class="campaign-card">
+                <div class="campaign-content">
+                  <strong data-i18n="campaign3Title">Resort Fluid</strong>
+                  <span data-i18n="campaign3Sub">Campaign III</span>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <div class="grid">
+            <section class="section" id="collections">
+              <h3 data-i18n="collectionTitle">Signature Collections</h3>
+              <p data-i18n="collectionBody">
+                Designed for distinguished wardrobes, each line merges precision tailoring,
+                elevated textiles, and restrained sophistication.
+              </p>
+              <div class="collection-list">
+                <div class="collection">
+                  <strong data-i18n="line1Title">Noir Evening Atelier</strong>
+                  <span data-i18n="line1Body">
+                    Sculpted evening essentials with refined drama and depth.
+                  </span>
+                </div>
+                <div class="collection">
+                  <strong data-i18n="line2Title">Gold Signature Classics</strong>
+                  <span data-i18n="line2Body">
+                    Elevated staples reimagined through luxury-grade finishing.
+                  </span>
+                </div>
+                <div class="collection">
+                  <strong data-i18n="line3Title">Resort 26 Capsule</strong>
+                  <span data-i18n="line3Body">
+                    Light, fluid silhouettes crafted for modern destination style.
+                  </span>
+                </div>
+              </div>
+            </section>
+
+            <section class="section">
+              <h3 data-i18n="craftTitle">Craftsmanship Pillars</h3>
+              <p data-i18n="craftBody">
+                Our house combines artisan discipline and contemporary direction to deliver
+                a premium, camera-ready fit at every angle.
+              </p>
+              <ul class="pillars">
+                <li data-i18n="pillar1">Couture proportion and architectural construction</li>
+                <li data-i18n="pillar2">Luxury-grade textiles, trims, and hardware</li>
+                <li data-i18n="pillar3">Meticulous finishing in every seam and edge</li>
+              </ul>
+              <div class="socials">
+                <a
+                  class="social"
+                  href="https://instagram.com/chrisandchrista"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <strong>Instagram</strong>
+                  <span>@chrisandchrista</span>
+                </a>
+                <a
+                  class="social"
+                  href="https://www.tiktok.com/@chrisandchrista"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <strong>TikTok</strong>
+                  <span>@chrisandchrista</span>
+                </a>
+                <a
+                  class="social"
+                  href="https://www.youtube.com/@chrisandchrista"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <strong>YouTube</strong>
+                  <span>@chrisandchrista</span>
+                </a>
+              </div>
+            </section>
+          </div>
+
+          <div class="cta-panels" id="contact">
+            <section class="cta-card">
+              <h4 data-i18n="shopTitle">Shop Releases</h4>
+              <p data-i18n="shopBody">
+                Explore upcoming drops and signature pieces as they launch.
+              </p>
+              <a
+                class="btn btn-primary"
+                href="https://instagram.com/chrisandchrista"
+                target="_blank"
+                rel="noreferrer"
+                data-i18n="shopButton"
+              >
+                Enter Shop Channel
+              </a>
+            </section>
+
+            <section class="cta-card">
+              <h4 data-i18n="contactTitle">Press & Private Client</h4>
+              <p data-i18n="contactBody">
+                For styling collaborations and private appointments, connect through our
+                official Instagram direct channel.
+              </p>
+              <a
+                class="btn btn-ghost"
+                href="https://instagram.com/chrisandchrista"
+                target="_blank"
+                rel="noreferrer"
+                data-i18n="contactButton"
+              >
+                Contact via Instagram
+              </a>
+            </section>
+          </div>
+
+          <div class="footer" data-i18n="footer">Chris and Christa | Official Luxury Brand</div>
+        </div>
+      </div>
     </main>
 
     <script>
       const translations = {
         en: {
-          eyebrow: "Official Luxury Website",
-          title: "Chris and Christa",
-          subtitle:
-            "Welcome to our official space. Discover stories, moments, and premium updates from our journey together at @chrisandchrista.",
-          ctaInstagram: "Follow on Instagram",
-          ctaTiktok: "Watch on TikTok",
-          storyTitle: "Our Story",
-          storyBody:
-            "This is the beginning of a refined digital home for Chris and Christa. We are building a premium experience with curated content, personal updates, and exclusive moments.",
-          findTitle: "Find Us Online",
-          findBody:
-            "Follow our official handle below. We use one name across every platform: @chrisandchrista.",
-          footer: "Chris and Christa - Official"
+          brandMini: "Luxury Fashion House",
+          eyebrow: "Chris and Christa Atelier",
+          title: "Editorial Luxury for the Modern Muse",
+          lead:
+            "Chris and Christa defines luxury dressing through couture-inspired silhouettes, refined tailoring, and statement minimalism shaped for iconic moments.",
+          ctaCollection: "Explore Collection",
+          ctaContact: "Private Contact",
+          lookbookTitle: "Lookbook Prelude",
+          lookbookTag: "Seasonal Editorial 2026",
+          lookbookBody:
+            "A preview of silhouette directions for upcoming releases. Crafted to convey presence, precision, and timeless confidence.",
+          campaign1Title: "Noir Tailored",
+          campaign1Sub: "Campaign I",
+          campaign2Title: "Golden Evening",
+          campaign2Sub: "Campaign II",
+          campaign3Title: "Resort Fluid",
+          campaign3Sub: "Campaign III",
+          collectionTitle: "Signature Collections",
+          collectionBody:
+            "Designed for distinguished wardrobes, each line merges precision tailoring, elevated textiles, and restrained sophistication.",
+          line1Title: "Noir Evening Atelier",
+          line1Body: "Sculpted evening essentials with refined drama and depth.",
+          line2Title: "Gold Signature Classics",
+          line2Body: "Elevated staples reimagined through luxury-grade finishing.",
+          line3Title: "Resort 26 Capsule",
+          line3Body: "Light, fluid silhouettes crafted for modern destination style.",
+          craftTitle: "Craftsmanship Pillars",
+          craftBody:
+            "Our house combines artisan discipline and contemporary direction to deliver a premium, camera-ready fit at every angle.",
+          pillar1: "Couture proportion and architectural construction",
+          pillar2: "Luxury-grade textiles, trims, and hardware",
+          pillar3: "Meticulous finishing in every seam and edge",
+          shopTitle: "Shop Releases",
+          shopBody: "Explore upcoming drops and signature pieces as they launch.",
+          shopButton: "Enter Shop Channel",
+          contactTitle: "Press & Private Client",
+          contactBody:
+            "For styling collaborations and private appointments, connect through our official Instagram direct channel.",
+          contactButton: "Contact via Instagram",
+          footer: "Chris and Christa | Official Luxury Brand"
         },
         ko: {
-          eyebrow: "공식 럭셔리 웹사이트",
-          title: "크리스 앤 크리스타",
-          subtitle:
-            "저희의 공식 공간에 오신 것을 환영합니다. @chrisandchrista 에서 함께하는 여정의 이야기, 순간, 그리고 프리미엄 소식을 만나보세요.",
-          ctaInstagram: "인스타그램 팔로우",
-          ctaTiktok: "틱톡 보기",
-          storyTitle: "우리의 이야기",
-          storyBody:
-            "이곳은 크리스와 크리스타를 위한 세련된 디지털 홈의 시작입니다. 큐레이션된 콘텐츠, 개인적인 소식, 특별한 순간들을 담아 프리미엄 경험을 만들어가고 있습니다.",
-          findTitle: "공식 채널",
-          findBody:
-            "아래 공식 계정을 팔로우해 주세요. 모든 플랫폼에서 동일한 핸들 @chrisandchrista 를 사용합니다.",
-          footer: "Chris and Christa - 공식 홈페이지"
+          brandMini: "럭셔리 패션 하우스",
+          eyebrow: "Chris and Christa 아틀리에",
+          title: "모던 뮤즈를 위한 에디토리얼 럭셔리",
+          lead:
+            "Chris and Christa는 쿠튀르 영감의 실루엣, 정교한 테일러링, 그리고 강렬한 미니멀리즘으로 아이코닉한 순간을 완성하는 럭셔리 브랜드입니다.",
+          ctaCollection: "컬렉션 보기",
+          ctaContact: "프라이빗 문의",
+          lookbookTitle: "룩북 프렐류드",
+          lookbookTag: "시즈널 에디토리얼 2026",
+          lookbookBody:
+            "다가올 릴리즈를 위한 실루엣 방향을 미리 선보입니다. 존재감, 정밀함, 그리고 시대를 초월한 자신감을 담아냈습니다.",
+          campaign1Title: "누아르 테일러드",
+          campaign1Sub: "캠페인 I",
+          campaign2Title: "골든 이브닝",
+          campaign2Sub: "캠페인 II",
+          campaign3Title: "리조트 플루이드",
+          campaign3Sub: "캠페인 III",
+          collectionTitle: "시그니처 컬렉션",
+          collectionBody:
+            "정교한 테일러링, 고급 텍스타일, 절제된 세련미를 결합해 품격 있는 럭셔리 스타일을 제안합니다.",
+          line1Title: "누아르 이브닝 아틀리에",
+          line1Body: "세련된 드라마와 깊이를 담은 입체적 이브닝 에센셜.",
+          line2Title: "골드 시그니처 클래식",
+          line2Body: "럭셔리급 마감으로 재해석한 클래식 핵심 아이템.",
+          line3Title: "리조트 26 캡슐",
+          line3Body: "모던 데스티네이션 스타일을 위한 유려한 실루엣.",
+          craftTitle: "장인정신의 핵심",
+          craftBody:
+            "브랜드의 장인적 디테일과 동시대적 방향성을 결합해, 어느 각도에서도 완성도 높은 프리미엄 핏을 구현합니다.",
+          pillar1: "쿠튀르 비율과 건축적 구조",
+          pillar2: "럭셔리급 원단, 트림, 하드웨어",
+          pillar3: "모든 봉제선과 엣지의 섬세한 마감",
+          shopTitle: "샵 릴리즈",
+          shopBody: "출시 예정 드롭과 시그니처 피스를 가장 먼저 만나보세요.",
+          shopButton: "샵 채널 입장",
+          contactTitle: "프레스 & 프라이빗 클라이언트",
+          contactBody:
+            "스타일링 협업 및 프라이빗 상담은 공식 인스타그램 다이렉트 채널로 문의해 주세요.",
+          contactButton: "인스타그램으로 문의",
+          footer: "Chris and Christa | 공식 럭셔리 브랜드"
         }
       };
 
-      const langButtons = document.querySelectorAll(".lang-btn");
+      const languageButtons = document.querySelectorAll(".lang-btn");
       const translatable = document.querySelectorAll("[data-i18n]");
+      const campaignCards = document.querySelectorAll(".campaign-card");
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-      function applyLanguage(lang) {
+      function setLanguage(lang) {
         document.documentElement.lang = lang;
         translatable.forEach((node) => {
           const key = node.dataset.i18n;
@@ -396,16 +803,30 @@
             node.textContent = translations[lang][key];
           }
         });
-        langButtons.forEach((button) => {
+        languageButtons.forEach((button) => {
           button.setAttribute("aria-pressed", String(button.dataset.lang === lang));
         });
       }
 
-      langButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-          applyLanguage(button.dataset.lang);
-        });
+      languageButtons.forEach((button) => {
+        button.addEventListener("click", () => setLanguage(button.dataset.lang));
       });
+
+      if (!reduceMotion) {
+        campaignCards.forEach((card) => {
+          card.addEventListener("mousemove", (event) => {
+            const rect = card.getBoundingClientRect();
+            const x = (event.clientX - rect.left) / rect.width - 0.5;
+            const y = (event.clientY - rect.top) / rect.height - 0.5;
+            const rotateY = x * 8;
+            const rotateX = y * -8;
+            card.style.transform = `perspective(700px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+          });
+          card.addEventListener("mouseleave", () => {
+            card.style.transform = "perspective(700px) rotateX(0deg) rotateY(0deg)";
+          });
+        });
+      }
     </script>
   </body>
 </html>
