@@ -1,117 +1,677 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chris and Christa | Modern Luxury</title>
     <meta
       name="description"
-      content="Chris and Christa home landing page - a celebration of love, family, and forever."
+      content="Chris and Christa is a modern luxury clothing brand focused on refined silhouettes, premium materials, and timeless style."
     />
-    <title>Chris &amp; Christa</title>
+    <meta property="og:title" content="Chris and Christa | Modern Luxury" />
+    <meta
+      property="og:description"
+      content="Discover the official Chris and Christa world. Follow @chrisandchristaofficial."
+    />
+    <meta property="og:type" content="website" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <style>
+      :root {
+        --bg: #f8f6f2;
+        --paper: #fffdf8;
+        --panel: #ffffff;
+        --line: #e7dfd1;
+        --text: #1f1d1a;
+        --muted: #6b6258;
+        --accent: #8a6f42;
+        --accent-soft: #f2eadc;
+        --shadow: 0 14px 30px rgba(31, 29, 26, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .page {
+        width: min(1140px, 92vw);
+        margin: 0 auto;
+        padding: 1.1rem 0 3rem;
+      }
+
+      .frame {
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+      }
+
+      .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.8rem;
+        padding: 0.85rem 1rem;
+        border-bottom: 1px solid var(--line);
+        background: #fff;
+      }
+
+      .brand-mini {
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        font-size: 0.72rem;
+        font-weight: 700;
+        color: var(--muted);
+      }
+
+      .lang-switch {
+        display: inline-flex;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        overflow: hidden;
+      }
+
+      .lang-btn {
+        border: 0;
+        background: transparent;
+        color: var(--muted);
+        padding: 0.44rem 0.88rem;
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .lang-btn[aria-pressed="true"] {
+        background: var(--accent);
+        color: #fff;
+      }
+
+      .hero {
+        padding: clamp(1.2rem, 3vw, 2.3rem);
+        display: grid;
+        gap: 1rem;
+      }
+
+      .logo-wrap {
+        display: flex;
+        justify-content: center;
+      }
+
+      .logo {
+        width: min(450px, 100%);
+        max-height: 300px;
+        object-fit: contain;
+      }
+
+      .logo-fallback {
+        display: none;
+        font-family: "DM Serif Display", Georgia, serif;
+        font-size: clamp(2rem, 6vw, 3.6rem);
+        letter-spacing: 0.08em;
+        color: var(--accent);
+      }
+
+      .eyebrow {
+        text-align: center;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        font-size: 0.72rem;
+        color: var(--muted);
+      }
+
+      h1 {
+        margin: 0;
+        text-align: center;
+        font-family: "DM Serif Display", Georgia, serif;
+        font-size: clamp(2.2rem, 5.2vw, 4.3rem);
+        line-height: 1;
+        letter-spacing: 0.01em;
+      }
+
+      .lead {
+        margin: 0 auto;
+        max-width: 66ch;
+        text-align: center;
+        color: var(--muted);
+        line-height: 1.75;
+        font-size: clamp(1rem, 2vw, 1.14rem);
+      }
+
+      .hero-actions {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.7rem;
+      }
+
+      .btn {
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.9rem;
+        padding: 0.75rem 1.2rem;
+      }
+
+      .btn-primary {
+        background: var(--accent);
+        color: #fff;
+      }
+
+      .btn-secondary {
+        background: #fff;
+        border: 1px solid var(--line);
+      }
+
+      .content {
+        border-top: 1px solid var(--line);
+        padding: clamp(1rem, 2.4vw, 1.6rem);
+      }
+
+      .lookbook {
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 1rem;
+        background: var(--panel);
+      }
+
+      .lookbook-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 0.7rem;
+        flex-wrap: wrap;
+      }
+
+      .lookbook h2,
+      .section h3,
+      .cta-card h4 {
+        margin: 0;
+        font-family: "DM Serif Display", Georgia, serif;
+        font-size: clamp(1.5rem, 3.3vw, 2rem);
+        line-height: 1.06;
+      }
+
+      .lookbook p,
+      .section p,
+      .cta-card p {
+        margin: 0.55rem 0 0;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .campaign-grid {
+        margin-top: 0.8rem;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.7rem;
+      }
+
+      .campaign-card {
+        min-height: 144px;
+        border-radius: 14px;
+        border: 1px solid var(--line);
+        background:
+          linear-gradient(150deg, rgba(242, 234, 220, 0.8), rgba(255, 255, 255, 1)),
+          radial-gradient(circle at 82% 20%, rgba(138, 111, 66, 0.12), transparent 44%);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .campaign-content {
+        position: absolute;
+        left: 0.85rem;
+        right: 0.85rem;
+        bottom: 0.8rem;
+      }
+
+      .campaign-content strong {
+        display: block;
+        font-family: "DM Serif Display", Georgia, serif;
+        font-size: 1.2rem;
+      }
+
+      .campaign-content span {
+        display: block;
+        margin-top: 0.2rem;
+        font-size: 0.76rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--muted);
+      }
+
+      .grid {
+        margin-top: 0.95rem;
+        display: grid;
+        grid-template-columns: 1.25fr 1fr;
+        gap: 0.9rem;
+      }
+
+      .section {
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: #fff;
+        padding: 1rem;
+      }
+
+      .collection-list {
+        margin-top: 0.75rem;
+        display: grid;
+        gap: 0.62rem;
+      }
+
+      .collection {
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: #fffdf9;
+        padding: 0.7rem;
+      }
+
+      .collection strong {
+        display: block;
+      }
+
+      .collection span {
+        display: block;
+        margin-top: 0.25rem;
+        color: var(--muted);
+        font-size: 0.93rem;
+      }
+
+      .pillars {
+        margin: 0.72rem 0 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 0.56rem;
+      }
+
+      .pillars li {
+        border-left: 2px solid #d8c5a3;
+        padding-left: 0.58rem;
+        color: #544b40;
+        line-height: 1.56;
+      }
+
+      .socials {
+        margin-top: 0.8rem;
+        display: grid;
+        gap: 0.56rem;
+      }
+
+      .social {
+        display: block;
+        text-decoration: none;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: #fff;
+        padding: 0.62rem 0.68rem;
+      }
+
+      .social strong {
+        display: block;
+      }
+
+      .social span {
+        display: block;
+        margin-top: 0.18rem;
+        color: var(--muted);
+      }
+
+      .cta-panels {
+        margin-top: 0.95rem;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.8rem;
+      }
+
+      .cta-card {
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: var(--accent-soft);
+        padding: 1rem;
+      }
+
+      .cta-card .btn {
+        margin-top: 0.7rem;
+        display: inline-block;
+      }
+
+      .footer {
+        margin-top: 0.9rem;
+        padding-top: 0.9rem;
+        border-top: 1px solid var(--line);
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.9rem;
+        letter-spacing: 0.04em;
+      }
+
+      @media (max-width: 920px) {
+        .grid,
+        .cta-panels {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .campaign-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
   </head>
   <body>
-    <div class="page-shell">
-      <header class="site-header">
-        <a href="#home" class="logo">Chris <span>&amp;</span> Christa</a>
-        <nav class="site-nav">
-          <a href="#story">Our Story</a>
-          <a href="#details">Details</a>
-          <a href="#gallery">Gallery</a>
-          <a href="#rsvp">RSVP</a>
-        </nav>
-      </header>
+    <main class="page">
+      <div class="frame">
+        <header class="header">
+          <div class="brand-mini" data-i18n="brandMini">Modern Luxury Brand</div>
+          <div class="lang-switch" role="group" aria-label="Language selector">
+            <button class="lang-btn" type="button" data-lang="en" aria-pressed="true">
+              EN
+            </button>
+            <button class="lang-btn" type="button" data-lang="ko" aria-pressed="false">
+              KR
+            </button>
+          </div>
+        </header>
 
-      <main>
-        <section id="home" class="hero">
-          <p class="eyebrow">Forever Begins Here</p>
-          <h1>Chris and Christa</h1>
-          <p class="hero-copy">
-            Welcome to our home page. We are so excited to celebrate this next
-            chapter with the people we love most.
+        <section class="hero">
+          <div class="logo-wrap">
+            <img
+              src="logo.png"
+              alt="Chris and Christa logo"
+              class="logo"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='block';"
+            />
+            <span class="logo-fallback">Chris and Christa</span>
+          </div>
+          <div class="eyebrow" data-i18n="eyebrow">Official Homepage</div>
+          <h1 data-i18n="title">Modern Luxury. Timeless Identity.</h1>
+          <p class="lead" data-i18n="lead">
+            Chris and Christa builds modern luxury clothing through refined silhouettes,
+            premium materials, and understated confidence for everyday statement moments.
           </p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#rsvp">RSVP Now</a>
-            <a class="btn btn-secondary" href="#story">Read Our Story</a>
+            <a class="btn btn-primary" href="#collections" data-i18n="ctaCollection">
+              Explore Collection
+            </a>
+            <a class="btn btn-secondary" href="#contact" data-i18n="ctaContact">
+              Contact Brand Team
+            </a>
           </div>
         </section>
 
-        <section id="story" class="section split">
-          <div class="section-copy">
-            <p class="section-label">Our Story</p>
-            <h2>A love written with grace and joy</h2>
-            <p>
-              From our very first conversation to the moments that shaped us,
-              every step has drawn us closer. We have laughed, learned, and
-              grown together, and now we are grateful to begin forever as one.
+        <div class="content">
+          <section class="lookbook">
+            <div class="lookbook-header">
+              <h2 data-i18n="lookbookTitle">Brand Lookbook</h2>
+              <span class="brand-mini" data-i18n="lookbookTag">Season Edit 2026</span>
+            </div>
+            <p data-i18n="lookbookBody">
+              A calm visual direction built around clean lines, premium texture, and a modern
+              luxury attitude.
             </p>
-            <p>
-              This page is our little corner on the web where friends and
-              family can stay connected to all things Chris and Christa.
-            </p>
-          </div>
-          <div class="monogram-card" aria-hidden="true">
-            <span>C</span>
-            <span class="amp">&amp;</span>
-            <span>C</span>
-          </div>
-        </section>
+            <div class="campaign-grid">
+              <article class="campaign-card">
+                <div class="campaign-content">
+                  <strong data-i18n="campaign1Title">Tailored Core</strong>
+                  <span data-i18n="campaign1Sub">Campaign I</span>
+                </div>
+              </article>
+              <article class="campaign-card">
+                <div class="campaign-content">
+                  <strong data-i18n="campaign2Title">Soft Formal</strong>
+                  <span data-i18n="campaign2Sub">Campaign II</span>
+                </div>
+              </article>
+              <article class="campaign-card">
+                <div class="campaign-content">
+                  <strong data-i18n="campaign3Title">City Capsule</strong>
+                  <span data-i18n="campaign3Sub">Campaign III</span>
+                </div>
+              </article>
+            </div>
+          </section>
 
-        <section id="details" class="section">
-          <p class="section-label center">Event Details</p>
-          <h2 class="center">Save the Date</h2>
-          <div class="detail-grid">
-            <article class="detail-card">
-              <h3>Date</h3>
-              <p>Saturday, October 10, 2026</p>
-            </article>
-            <article class="detail-card">
-              <h3>Time</h3>
-              <p>Ceremony at 4:00 PM</p>
-            </article>
-            <article class="detail-card">
-              <h3>Venue</h3>
-              <p>The Grand Garden Hall</p>
-            </article>
-            <article class="detail-card">
-              <h3>Dress Code</h3>
-              <p>Formal Elegance</p>
-            </article>
+          <div class="grid">
+            <section class="section" id="collections">
+              <h3 data-i18n="collectionTitle">Signature Collections</h3>
+              <p data-i18n="collectionBody">
+                Each line is designed with restrained elegance, balanced tailoring, and materials
+                selected for quality and long-term wear.
+              </p>
+              <div class="collection-list">
+                <div class="collection">
+                  <strong data-i18n="line1Title">Core Tailoring</strong>
+                  <span data-i18n="line1Body">Essential silhouettes for polished daily wear.</span>
+                </div>
+                <div class="collection">
+                  <strong data-i18n="line2Title">Evening Minimal</strong>
+                  <span data-i18n="line2Body">
+                    Clean statement pieces for elegant night styling.
+                  </span>
+                </div>
+                <div class="collection">
+                  <strong data-i18n="line3Title">Travel Capsule</strong>
+                  <span data-i18n="line3Body">
+                    Lightweight refined looks for modern movement.
+                  </span>
+                </div>
+              </div>
+            </section>
+
+            <section class="section">
+              <h3 data-i18n="craftTitle">Brand Principles</h3>
+              <p data-i18n="craftBody">
+                Our design philosophy prioritizes fit, quality, and clarity over excess.
+              </p>
+              <ul class="pillars">
+                <li data-i18n="pillar1">Tailored balance and practical luxury</li>
+                <li data-i18n="pillar2">Premium fabrics and thoughtful details</li>
+                <li data-i18n="pillar3">Consistent finishing and comfort</li>
+              </ul>
+              <div class="socials">
+                <a
+                  class="social"
+                  href="https://instagram.com/chrisandchristaofficial"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <strong>Instagram</strong>
+                  <span>@chrisandchristaofficial</span>
+                </a>
+                <a
+                  class="social"
+                  href="https://www.tiktok.com/@chrisandchrista"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <strong>TikTok</strong>
+                  <span>@chrisandchrista</span>
+                </a>
+                <a
+                  class="social"
+                  href="https://www.youtube.com/@chrisandchrista"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <strong>YouTube</strong>
+                  <span>@chrisandchrista</span>
+                </a>
+                <a
+                  class="social"
+                  href="https://smartstore.naver.com/chriandchrista"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <strong>Naver Store</strong>
+                  <span>chriandchrista</span>
+                </a>
+              </div>
+            </section>
           </div>
-        </section>
 
-        <section id="gallery" class="section">
-          <p class="section-label center">Moments</p>
-          <h2 class="center">A few highlights</h2>
-          <div class="gallery-grid">
-            <div class="gallery-item"><span>First Date</span></div>
-            <div class="gallery-item"><span>Adventure</span></div>
-            <div class="gallery-item"><span>Engagement</span></div>
+          <div class="cta-panels" id="contact">
+            <section class="cta-card">
+              <h4 data-i18n="shopTitle">Shop Now</h4>
+              <p data-i18n="shopBody">Explore new drops and curated signature pieces.</p>
+              <a
+                class="btn btn-primary"
+                href="https://smartstore.naver.com/chriandchrista"
+                target="_blank"
+                rel="noreferrer"
+                data-i18n="shopButton"
+              >
+                Enter Naver Store
+              </a>
+            </section>
+
+            <section class="cta-card">
+              <h4 data-i18n="contactTitle">Press & Collaboration</h4>
+              <p data-i18n="contactBody">
+                For brand partnerships and collaboration requests, contact us through Instagram DM.
+              </p>
+              <a
+                class="btn btn-secondary"
+                href="https://instagram.com/chrisandchristaofficial"
+                target="_blank"
+                rel="noreferrer"
+                data-i18n="contactButton"
+              >
+                Contact on Instagram
+              </a>
+            </section>
           </div>
-        </section>
 
-        <section id="rsvp" class="section cta">
-          <p class="section-label">Join Us</p>
-          <h2>We would love to celebrate with you.</h2>
-          <p>
-            Kindly confirm your attendance and share your details. We cannot
-            wait to make memories together.
-          </p>
-          <a class="btn btn-primary" href="mailto:rsvp@chrisandchrista.com"
-            >Send RSVP</a
-          >
-        </section>
-      </main>
+          <div class="footer" data-i18n="footer">Chris and Christa | Official Brand Website</div>
+        </div>
+      </div>
+    </main>
 
-      <footer class="site-footer">
-        <p>With love, Chris &amp; Christa</p>
-      </footer>
-    </div>
+    <script>
+      const translations = {
+        en: {
+          brandMini: "Modern Luxury Brand",
+          eyebrow: "Official Homepage",
+          title: "Modern Luxury. Timeless Identity.",
+          lead:
+            "Chris and Christa builds modern luxury clothing through refined silhouettes, premium materials, and understated confidence for everyday statement moments.",
+          ctaCollection: "Explore Collection",
+          ctaContact: "Contact Brand Team",
+          lookbookTitle: "Brand Lookbook",
+          lookbookTag: "Season Edit 2026",
+          lookbookBody:
+            "A calm visual direction built around clean lines, premium texture, and a modern luxury attitude.",
+          campaign1Title: "Tailored Core",
+          campaign1Sub: "Campaign I",
+          campaign2Title: "Soft Formal",
+          campaign2Sub: "Campaign II",
+          campaign3Title: "City Capsule",
+          campaign3Sub: "Campaign III",
+          collectionTitle: "Signature Collections",
+          collectionBody:
+            "Each line is designed with restrained elegance, balanced tailoring, and materials selected for quality and long-term wear.",
+          line1Title: "Core Tailoring",
+          line1Body: "Essential silhouettes for polished daily wear.",
+          line2Title: "Evening Minimal",
+          line2Body: "Clean statement pieces for elegant night styling.",
+          line3Title: "Travel Capsule",
+          line3Body: "Lightweight refined looks for modern movement.",
+          craftTitle: "Brand Principles",
+          craftBody: "Our design philosophy prioritizes fit, quality, and clarity over excess.",
+          pillar1: "Tailored balance and practical luxury",
+          pillar2: "Premium fabrics and thoughtful details",
+          pillar3: "Consistent finishing and comfort",
+          shopTitle: "Shop Now",
+          shopBody: "Explore new drops and curated signature pieces.",
+          shopButton: "Enter Naver Store",
+          contactTitle: "Press & Collaboration",
+          contactBody:
+            "For brand partnerships and collaboration requests, contact us through Instagram DM.",
+          contactButton: "Contact on Instagram",
+          footer: "Chris and Christa | Official Brand Website"
+        },
+        ko: {
+          brandMini: "모던 럭셔리 브랜드",
+          eyebrow: "공식 홈페이지",
+          title: "모던 럭셔리. 타임리스 아이덴티티.",
+          lead:
+            "Chris and Christa는 정제된 실루엣, 프리미엄 소재, 그리고 절제된 자신감으로 일상 속 특별한 순간을 완성하는 모던 럭셔리 의류 브랜드입니다.",
+          ctaCollection: "컬렉션 보기",
+          ctaContact: "브랜드 문의",
+          lookbookTitle: "브랜드 룩북",
+          lookbookTag: "시즌 에디트 2026",
+          lookbookBody:
+            "클린한 라인, 고급 텍스처, 현대적인 럭셔리 감도를 중심으로 구성한 차분한 비주얼 방향성입니다.",
+          campaign1Title: "테일러드 코어",
+          campaign1Sub: "캠페인 I",
+          campaign2Title: "소프트 포멀",
+          campaign2Sub: "캠페인 II",
+          campaign3Title: "시티 캡슐",
+          campaign3Sub: "캠페인 III",
+          collectionTitle: "시그니처 컬렉션",
+          collectionBody:
+            "각 라인은 절제된 우아함, 균형 잡힌 테일러링, 그리고 오래 입을 수 있는 고급 소재를 중심으로 디자인됩니다.",
+          line1Title: "코어 테일러링",
+          line1Body: "완성도 높은 데일리 스타일을 위한 에센셜 실루엣.",
+          line2Title: "이브닝 미니멀",
+          line2Body: "우아한 나이트 스타일링을 위한 클린한 포인트 피스.",
+          line3Title: "트래블 캡슐",
+          line3Body: "현대적인 무드를 위한 가볍고 세련된 룩.",
+          craftTitle: "브랜드 원칙",
+          craftBody: "브랜드 디자인 철학은 과함보다 핏, 품질, 명확함을 우선합니다.",
+          pillar1: "균형 잡힌 테일러링과 실용적 럭셔리",
+          pillar2: "프리미엄 원단과 섬세한 디테일",
+          pillar3: "일관된 마감과 높은 착용감",
+          shopTitle: "지금 쇼핑하기",
+          shopBody: "신규 드롭과 시그니처 아이템을 만나보세요.",
+          shopButton: "네이버 스토어 입장",
+          contactTitle: "프레스 & 협업 문의",
+          contactBody:
+            "브랜드 파트너십 및 협업 문의는 인스타그램 DM으로 연락해 주세요.",
+          contactButton: "인스타그램 문의",
+          footer: "Chris and Christa | 공식 브랜드 웹사이트"
+        }
+      };
+
+      const languageButtons = document.querySelectorAll(".lang-btn");
+      const translatable = document.querySelectorAll("[data-i18n]");
+
+      function setLanguage(lang) {
+        document.documentElement.lang = lang;
+        translatable.forEach((node) => {
+          const key = node.dataset.i18n;
+          if (translations[lang] && translations[lang][key]) {
+            node.textContent = translations[lang][key];
+          }
+        });
+        languageButtons.forEach((button) => {
+          button.setAttribute("aria-pressed", String(button.dataset.lang === lang));
+        });
+      }
+
+      languageButtons.forEach((button) => {
+        button.addEventListener("click", () => setLanguage(button.dataset.lang));
+      });
+    </script>
   </body>
 </html>
