@@ -3,15 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chris and Christa | Modern Luxury</title>
+    <title>Chris and Christa | Luxury Prototypes</title>
     <meta
       name="description"
-      content="Chris and Christa is a modern luxury clothing brand focused on refined silhouettes, premium materials, and timeless style."
+      content="Chris and Christa is a modern luxury clothing brand showcasing premium prototype pieces with refined storytelling."
     />
-    <meta property="og:title" content="Chris and Christa | Modern Luxury" />
+    <meta property="og:title" content="Chris and Christa | Luxury Prototypes" />
     <meta
       property="og:description"
-      content="Discover the official Chris and Christa world. Follow @chrisandchristaofficial."
+      content="Explore prototype pieces and official channels from Chris and Christa."
     />
     <meta property="og:type" content="website" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -22,15 +22,17 @@
     />
     <style>
       :root {
-        --bg: #f8f6f2;
-        --paper: #fffdf8;
+        --bg: #f5f3ef;
+        --paper: #fffdf9;
         --panel: #ffffff;
-        --line: #e7dfd1;
-        --text: #1f1d1a;
-        --muted: #6b6258;
-        --accent: #8a6f42;
-        --accent-soft: #f2eadc;
-        --shadow: 0 14px 30px rgba(31, 29, 26, 0.08);
+        --line: #e5dfd4;
+        --text: #1f1c19;
+        --muted: #655d54;
+        --accent: #876d45;
+        --accent-soft: #f1e8da;
+        --denim: #d9e3ef;
+        --denim-strong: #8da4bc;
+        --shadow: 0 14px 34px rgba(31, 28, 25, 0.09);
       }
 
       * {
@@ -41,7 +43,7 @@
       body {
         margin: 0;
         padding: 0;
-        background: var(--bg);
+        background: linear-gradient(180deg, #f7f5f1, #f2efe9);
         color: var(--text);
         font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       }
@@ -51,9 +53,9 @@
       }
 
       .page {
-        width: min(1140px, 92vw);
+        width: min(1160px, 92vw);
         margin: 0 auto;
-        padding: 1.1rem 0 3rem;
+        padding: 1rem 0 3rem;
       }
 
       .frame {
@@ -69,16 +71,43 @@
         align-items: center;
         justify-content: space-between;
         gap: 0.8rem;
-        padding: 0.85rem 1rem;
+        padding: 0.78rem 1rem;
         border-bottom: 1px solid var(--line);
         background: #fff;
       }
 
-      .brand-mini {
-        letter-spacing: 0.14em;
+      .brand-lockup {
+        display: flex;
+        align-items: center;
+        gap: 0.72rem;
+      }
+
+      .brand-logo {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 1px solid var(--line);
+        background: var(--denim);
+      }
+
+      .brand-text {
+        display: grid;
+        gap: 0.12rem;
+      }
+
+      .brand-title {
+        margin: 0;
+        font-family: "DM Serif Display", Georgia, serif;
+        font-size: 1.1rem;
+        line-height: 1;
+      }
+
+      .brand-subtitle {
+        margin: 0;
+        letter-spacing: 0.12em;
         text-transform: uppercase;
-        font-size: 0.72rem;
-        font-weight: 700;
+        font-size: 0.63rem;
         color: var(--muted);
       }
 
@@ -93,8 +122,8 @@
         border: 0;
         background: transparent;
         color: var(--muted);
-        padding: 0.44rem 0.88rem;
-        font-size: 0.78rem;
+        padding: 0.4rem 0.82rem;
+        font-size: 0.76rem;
         letter-spacing: 0.08em;
         font-weight: 700;
         cursor: pointer;
@@ -106,33 +135,22 @@
       }
 
       .hero {
-        padding: clamp(1.2rem, 3vw, 2.3rem);
+        padding: clamp(1.2rem, 3vw, 2.35rem);
         display: grid;
-        gap: 1rem;
+        gap: 0.9rem;
+        text-align: center;
       }
 
-      .logo-wrap {
-        display: flex;
-        justify-content: center;
-      }
-
-      .logo {
-        width: min(450px, 100%);
-        max-height: 300px;
+      .hero-logo {
+        width: min(420px, 100%);
+        max-height: 260px;
         object-fit: contain;
-      }
-
-      .logo-fallback {
-        display: none;
-        font-family: "DM Serif Display", Georgia, serif;
-        font-size: clamp(2rem, 6vw, 3.6rem);
-        letter-spacing: 0.08em;
-        color: var(--accent);
+        margin: 0 auto;
       }
 
       .eyebrow {
-        text-align: center;
-        letter-spacing: 0.14em;
+        margin: 0;
+        letter-spacing: 0.13em;
         text-transform: uppercase;
         font-size: 0.72rem;
         color: var(--muted);
@@ -140,27 +158,24 @@
 
       h1 {
         margin: 0;
-        text-align: center;
         font-family: "DM Serif Display", Georgia, serif;
-        font-size: clamp(2.2rem, 5.2vw, 4.3rem);
+        font-size: clamp(2.1rem, 5vw, 4.1rem);
         line-height: 1;
-        letter-spacing: 0.01em;
       }
 
       .lead {
         margin: 0 auto;
         max-width: 66ch;
-        text-align: center;
         color: var(--muted);
-        line-height: 1.75;
-        font-size: clamp(1rem, 2vw, 1.14rem);
+        line-height: 1.72;
+        font-size: clamp(1rem, 2vw, 1.1rem);
       }
 
       .hero-actions {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 0.7rem;
+        gap: 0.66rem;
       }
 
       .btn {
@@ -168,7 +183,7 @@
         text-decoration: none;
         font-weight: 700;
         font-size: 0.9rem;
-        padding: 0.75rem 1.2rem;
+        padding: 0.74rem 1.2rem;
       }
 
       .btn-primary {
@@ -183,17 +198,17 @@
 
       .content {
         border-top: 1px solid var(--line);
-        padding: clamp(1rem, 2.4vw, 1.6rem);
+        padding: clamp(1rem, 2.6vw, 1.7rem);
       }
 
-      .lookbook {
+      .prototype-section {
         border: 1px solid var(--line);
         border-radius: 18px;
-        padding: 1rem;
         background: var(--panel);
+        padding: clamp(1rem, 2.1vw, 1.3rem);
       }
 
-      .lookbook-header {
+      .prototype-header {
         display: flex;
         justify-content: space-between;
         align-items: baseline;
@@ -201,67 +216,83 @@
         flex-wrap: wrap;
       }
 
-      .lookbook h2,
+      h2,
       .section h3,
       .cta-card h4 {
         margin: 0;
         font-family: "DM Serif Display", Georgia, serif;
-        font-size: clamp(1.5rem, 3.3vw, 2rem);
+        font-size: clamp(1.5rem, 3vw, 2rem);
         line-height: 1.06;
       }
 
-      .lookbook p,
+      .prototype-copy,
       .section p,
       .cta-card p {
-        margin: 0.55rem 0 0;
+        margin: 0.52rem 0 0;
         color: var(--muted);
-        line-height: 1.7;
+        line-height: 1.68;
       }
 
-      .campaign-grid {
-        margin-top: 0.8rem;
+      .prototype-grid {
+        margin-top: 0.86rem;
         display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 0.7rem;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0.75rem;
       }
 
-      .campaign-card {
-        min-height: 144px;
-        border-radius: 14px;
+      .prototype-card {
         border: 1px solid var(--line);
-        background:
-          linear-gradient(150deg, rgba(242, 234, 220, 0.8), rgba(255, 255, 255, 1)),
-          radial-gradient(circle at 82% 20%, rgba(138, 111, 66, 0.12), transparent 44%);
-        position: relative;
+        border-radius: 14px;
         overflow: hidden;
+        background: #fff;
       }
 
-      .campaign-content {
+      .prototype-media {
+        min-height: 210px;
+        background-color: var(--denim);
+        background-image:
+          linear-gradient(170deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0)),
+          var(--prototype-image);
+        background-size: cover;
+        background-position: center;
+        position: relative;
+      }
+
+      .prototype-badge {
         position: absolute;
-        left: 0.85rem;
-        right: 0.85rem;
-        bottom: 0.8rem;
+        left: 0.62rem;
+        top: 0.62rem;
+        padding: 0.26rem 0.5rem;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        background: rgba(255, 255, 255, 0.75);
+        color: #4d4337;
+        font-size: 0.66rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
       }
 
-      .campaign-content strong {
+      .prototype-info {
+        padding: 0.7rem;
+      }
+
+      .prototype-info strong {
         display: block;
         font-family: "DM Serif Display", Georgia, serif;
-        font-size: 1.2rem;
+        font-size: 1.12rem;
       }
 
-      .campaign-content span {
+      .prototype-info span {
         display: block;
-        margin-top: 0.2rem;
-        font-size: 0.76rem;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
+        margin-top: 0.26rem;
         color: var(--muted);
+        font-size: 0.9rem;
       }
 
       .grid {
         margin-top: 0.95rem;
         display: grid;
-        grid-template-columns: 1.25fr 1fr;
+        grid-template-columns: 1.24fr 1fr;
         gap: 0.9rem;
       }
 
@@ -273,9 +304,9 @@
       }
 
       .collection-list {
-        margin-top: 0.75rem;
+        margin-top: 0.72rem;
         display: grid;
-        gap: 0.62rem;
+        gap: 0.6rem;
       }
 
       .collection {
@@ -291,9 +322,9 @@
 
       .collection span {
         display: block;
-        margin-top: 0.25rem;
+        margin-top: 0.22rem;
         color: var(--muted);
-        font-size: 0.93rem;
+        font-size: 0.92rem;
       }
 
       .pillars {
@@ -301,20 +332,20 @@
         padding: 0;
         list-style: none;
         display: grid;
-        gap: 0.56rem;
+        gap: 0.54rem;
       }
 
       .pillars li {
-        border-left: 2px solid #d8c5a3;
+        border-left: 2px solid #d6c3a2;
         padding-left: 0.58rem;
         color: #544b40;
         line-height: 1.56;
       }
 
       .socials {
-        margin-top: 0.8rem;
+        margin-top: 0.76rem;
         display: grid;
-        gap: 0.56rem;
+        gap: 0.54rem;
       }
 
       .social {
@@ -365,6 +396,12 @@
         letter-spacing: 0.04em;
       }
 
+      @media (max-width: 980px) {
+        .prototype-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
       @media (max-width: 920px) {
         .grid,
         .cta-panels {
@@ -372,8 +409,8 @@
         }
       }
 
-      @media (max-width: 760px) {
-        .campaign-grid {
+      @media (max-width: 620px) {
+        .prototype-grid {
           grid-template-columns: 1fr;
         }
       }
@@ -383,7 +420,13 @@
     <main class="page">
       <div class="frame">
         <header class="header">
-          <div class="brand-mini" data-i18n="brandMini">Modern Luxury Brand</div>
+          <div class="brand-lockup">
+            <img src="logo.png" alt="Chris and Christa logo mark" class="brand-logo" />
+            <div class="brand-text">
+              <p class="brand-title">Chris and Christa</p>
+              <p class="brand-subtitle" data-i18n="brandMini">Luxury Prototype Studio</p>
+            </div>
+          </div>
           <div class="lang-switch" role="group" aria-label="Language selector">
             <button class="lang-btn" type="button" data-lang="en" aria-pressed="true">
               EN
@@ -395,24 +438,16 @@
         </header>
 
         <section class="hero">
-          <div class="logo-wrap">
-            <img
-              src="logo.png"
-              alt="Chris and Christa logo"
-              class="logo"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='block';"
-            />
-            <span class="logo-fallback">Chris and Christa</span>
-          </div>
-          <div class="eyebrow" data-i18n="eyebrow">Official Homepage</div>
-          <h1 data-i18n="title">Modern Luxury. Timeless Identity.</h1>
+          <img src="logo.png" alt="Chris and Christa logo" class="hero-logo" />
+          <p class="eyebrow" data-i18n="eyebrow">Official Prototype Collection</p>
+          <h1 data-i18n="title">Where Our Clothes Begin</h1>
           <p class="lead" data-i18n="lead">
-            Chris and Christa builds modern luxury clothing through refined silhouettes,
-            premium materials, and understated confidence for everyday statement moments.
+            Chris and Christa shares early luxury prototypes so our community can see the shape,
+            embroidery, and details before official drops.
           </p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#collections" data-i18n="ctaCollection">
-              Explore Collection
+            <a class="btn btn-primary" href="#prototypes" data-i18n="ctaPrototype">
+              View Prototypes
             </a>
             <a class="btn btn-secondary" href="#contact" data-i18n="ctaContact">
               Contact Brand Team
@@ -421,32 +456,70 @@
         </section>
 
         <div class="content">
-          <section class="lookbook">
-            <div class="lookbook-header">
-              <h2 data-i18n="lookbookTitle">Brand Lookbook</h2>
-              <span class="brand-mini" data-i18n="lookbookTag">Season Edit 2026</span>
+          <section class="prototype-section" id="prototypes">
+            <div class="prototype-header">
+              <h2 data-i18n="prototypeTitle">Clothing Prototypes</h2>
+              <span class="brand-subtitle" data-i18n="prototypeTag">Design Development</span>
             </div>
-            <p data-i18n="lookbookBody">
-              A calm visual direction built around clean lines, premium texture, and a modern
-              luxury attitude.
+            <p class="prototype-copy" data-i18n="prototypeBody">
+              These panels are prepared for your prototype visuals. Place your files in the repo
+              using the filenames shown below to display your real pieces instantly.
             </p>
-            <div class="campaign-grid">
-              <article class="campaign-card">
-                <div class="campaign-content">
-                  <strong data-i18n="campaign1Title">Tailored Core</strong>
-                  <span data-i18n="campaign1Sub">Campaign I</span>
+            <div class="prototype-grid">
+              <article class="prototype-card">
+                <div
+                  class="prototype-media"
+                  style="--prototype-image: url('prototype-denim-sky.png')"
+                  role="img"
+                  aria-label="Prototype denim concept"
+                >
+                  <span class="prototype-badge" data-i18n="badgeOne">Prototype 01</span>
+                </div>
+                <div class="prototype-info">
+                  <strong data-i18n="proto1Title">Moonline Denim Embroidery</strong>
+                  <span data-i18n="proto1Body">Use file: prototype-denim-sky.png</span>
                 </div>
               </article>
-              <article class="campaign-card">
-                <div class="campaign-content">
-                  <strong data-i18n="campaign2Title">Soft Formal</strong>
-                  <span data-i18n="campaign2Sub">Campaign II</span>
+              <article class="prototype-card">
+                <div
+                  class="prototype-media"
+                  style="--prototype-image: url('prototype-mother-of-pearl.png')"
+                  role="img"
+                  aria-label="Prototype mother of pearl concept"
+                >
+                  <span class="prototype-badge" data-i18n="badgeTwo">Prototype 02</span>
+                </div>
+                <div class="prototype-info">
+                  <strong data-i18n="proto2Title">Mother of Pearl Denim</strong>
+                  <span data-i18n="proto2Body">Use file: prototype-mother-of-pearl.png</span>
                 </div>
               </article>
-              <article class="campaign-card">
-                <div class="campaign-content">
-                  <strong data-i18n="campaign3Title">City Capsule</strong>
-                  <span data-i18n="campaign3Sub">Campaign III</span>
+              <article class="prototype-card">
+                <div
+                  class="prototype-media"
+                  style="--prototype-image: url('prototype-capsule-light.png')"
+                  role="img"
+                  aria-label="Prototype capsule concept"
+                >
+                  <span class="prototype-badge" data-i18n="badgeThree">Prototype 03</span>
+                </div>
+                <div class="prototype-info">
+                  <strong data-i18n="proto3Title">City Capsule Essentials</strong>
+                  <span data-i18n="proto3Body">Use file: prototype-capsule-light.png</span>
+                </div>
+              </article>
+              <article class="prototype-card">
+                <div
+                  class="prototype-media"
+                  style="--prototype-image: url('prototype-pink-variant.png')"
+                  role="img"
+                  aria-label="Prototype pink variant concept"
+                >
+                  <span class="prototype-badge" data-i18n="badgeFour">Prototype 04</span>
+                </div>
+                <div class="prototype-info">
+                  <strong data-i18n="proto4Title">Pink Variant Denim</strong>
+                  <span data-i18n="proto4Body">Use file: prototype-pink-variant.png</span>
                 </div>
               </article>
             </div>
@@ -454,40 +527,43 @@
 
           <div class="grid">
             <section class="section" id="collections">
-              <h3 data-i18n="collectionTitle">Signature Collections</h3>
+              <h3 data-i18n="collectionTitle">Signature Direction</h3>
               <p data-i18n="collectionBody">
-                Each line is designed with restrained elegance, balanced tailoring, and materials
-                selected for quality and long-term wear.
+                Every piece balances clarity, comfort, and premium finish while staying true to
+                the Chris and Christa identity.
               </p>
               <div class="collection-list">
                 <div class="collection">
-                  <strong data-i18n="line1Title">Core Tailoring</strong>
-                  <span data-i18n="line1Body">Essential silhouettes for polished daily wear.</span>
-                </div>
-                <div class="collection">
-                  <strong data-i18n="line2Title">Evening Minimal</strong>
-                  <span data-i18n="line2Body">
-                    Clean statement pieces for elegant night styling.
+                  <strong data-i18n="line1Title">Denim Art Line</strong>
+                  <span data-i18n="line1Body">
+                    Character embroidery and cloud motifs with elevated finishing.
                   </span>
                 </div>
                 <div class="collection">
-                  <strong data-i18n="line3Title">Travel Capsule</strong>
+                  <strong data-i18n="line2Title">Evening Structure</strong>
+                  <span data-i18n="line2Body">
+                    Structured silhouettes made for editorial and event styling.
+                  </span>
+                </div>
+                <div class="collection">
+                  <strong data-i18n="line3Title">Daily Luxe Capsule</strong>
                   <span data-i18n="line3Body">
-                    Lightweight refined looks for modern movement.
+                    Clean essentials with premium textures for everyday luxury.
                   </span>
                 </div>
               </div>
             </section>
 
             <section class="section">
-              <h3 data-i18n="craftTitle">Brand Principles</h3>
+              <h3 data-i18n="craftTitle">Brand Channels</h3>
               <p data-i18n="craftBody">
-                Our design philosophy prioritizes fit, quality, and clarity over excess.
+                Follow official channels for prototype drops, release timelines, and styling
+                stories.
               </p>
               <ul class="pillars">
-                <li data-i18n="pillar1">Tailored balance and practical luxury</li>
-                <li data-i18n="pillar2">Premium fabrics and thoughtful details</li>
-                <li data-i18n="pillar3">Consistent finishing and comfort</li>
+                <li data-i18n="pillar1">Prototype to production updates</li>
+                <li data-i18n="pillar2">Drop calendar and launch notices</li>
+                <li data-i18n="pillar3">Behind-the-scenes craftsmanship stories</li>
               </ul>
               <div class="socials">
                 <a
@@ -533,7 +609,7 @@
           <div class="cta-panels" id="contact">
             <section class="cta-card">
               <h4 data-i18n="shopTitle">Shop Now</h4>
-              <p data-i18n="shopBody">Explore new drops and curated signature pieces.</p>
+              <p data-i18n="shopBody">Explore current drops and upcoming signature pieces.</p>
               <a
                 class="btn btn-primary"
                 href="https://smartstore.naver.com/chriandchrista"
@@ -548,7 +624,8 @@
             <section class="cta-card">
               <h4 data-i18n="contactTitle">Press & Collaboration</h4>
               <p data-i18n="contactBody">
-                For brand partnerships and collaboration requests, contact us through Instagram DM.
+                For partnerships and collaboration requests, please contact us through Instagram
+                DM.
               </p>
               <a
                 class="btn btn-secondary"
@@ -570,84 +647,96 @@
     <script>
       const translations = {
         en: {
-          brandMini: "Modern Luxury Brand",
-          eyebrow: "Official Homepage",
-          title: "Modern Luxury. Timeless Identity.",
+          brandMini: "Luxury Prototype Studio",
+          eyebrow: "Official Prototype Collection",
+          title: "Where Our Clothes Begin",
           lead:
-            "Chris and Christa builds modern luxury clothing through refined silhouettes, premium materials, and understated confidence for everyday statement moments.",
-          ctaCollection: "Explore Collection",
+            "Chris and Christa shares early luxury prototypes so our community can see the shape, embroidery, and details before official drops.",
+          ctaPrototype: "View Prototypes",
           ctaContact: "Contact Brand Team",
-          lookbookTitle: "Brand Lookbook",
-          lookbookTag: "Season Edit 2026",
-          lookbookBody:
-            "A calm visual direction built around clean lines, premium texture, and a modern luxury attitude.",
-          campaign1Title: "Tailored Core",
-          campaign1Sub: "Campaign I",
-          campaign2Title: "Soft Formal",
-          campaign2Sub: "Campaign II",
-          campaign3Title: "City Capsule",
-          campaign3Sub: "Campaign III",
-          collectionTitle: "Signature Collections",
+          prototypeTitle: "Clothing Prototypes",
+          prototypeTag: "Design Development",
+          prototypeBody:
+            "These panels are prepared for your prototype visuals. Place your files in the repo using the filenames shown below to display your real pieces instantly.",
+          badgeOne: "Prototype 01",
+          badgeTwo: "Prototype 02",
+          badgeThree: "Prototype 03",
+          badgeFour: "Prototype 04",
+          proto1Title: "Moonline Denim Embroidery",
+          proto1Body: "Use file: prototype-denim-sky.png",
+          proto2Title: "Mother of Pearl Denim",
+          proto2Body: "Use file: prototype-mother-of-pearl.png",
+          proto3Title: "City Capsule Essentials",
+          proto3Body: "Use file: prototype-capsule-light.png",
+          proto4Title: "Pink Variant Denim",
+          proto4Body: "Use file: prototype-pink-variant.png",
+          collectionTitle: "Signature Direction",
           collectionBody:
-            "Each line is designed with restrained elegance, balanced tailoring, and materials selected for quality and long-term wear.",
-          line1Title: "Core Tailoring",
-          line1Body: "Essential silhouettes for polished daily wear.",
-          line2Title: "Evening Minimal",
-          line2Body: "Clean statement pieces for elegant night styling.",
-          line3Title: "Travel Capsule",
-          line3Body: "Lightweight refined looks for modern movement.",
-          craftTitle: "Brand Principles",
-          craftBody: "Our design philosophy prioritizes fit, quality, and clarity over excess.",
-          pillar1: "Tailored balance and practical luxury",
-          pillar2: "Premium fabrics and thoughtful details",
-          pillar3: "Consistent finishing and comfort",
+            "Every piece balances clarity, comfort, and premium finish while staying true to the Chris and Christa identity.",
+          line1Title: "Denim Art Line",
+          line1Body: "Character embroidery and cloud motifs with elevated finishing.",
+          line2Title: "Evening Structure",
+          line2Body: "Structured silhouettes made for editorial and event styling.",
+          line3Title: "Daily Luxe Capsule",
+          line3Body: "Clean essentials with premium textures for everyday luxury.",
+          craftTitle: "Brand Channels",
+          craftBody:
+            "Follow official channels for prototype drops, release timelines, and styling stories.",
+          pillar1: "Prototype to production updates",
+          pillar2: "Drop calendar and launch notices",
+          pillar3: "Behind-the-scenes craftsmanship stories",
           shopTitle: "Shop Now",
-          shopBody: "Explore new drops and curated signature pieces.",
+          shopBody: "Explore current drops and upcoming signature pieces.",
           shopButton: "Enter Naver Store",
           contactTitle: "Press & Collaboration",
           contactBody:
-            "For brand partnerships and collaboration requests, contact us through Instagram DM.",
+            "For partnerships and collaboration requests, please contact us through Instagram DM.",
           contactButton: "Contact on Instagram",
           footer: "Chris and Christa | Official Brand Website"
         },
         ko: {
-          brandMini: "모던 럭셔리 브랜드",
-          eyebrow: "공식 홈페이지",
-          title: "모던 럭셔리. 타임리스 아이덴티티.",
+          brandMini: "럭셔리 프로토타입 스튜디오",
+          eyebrow: "공식 프로토타입 컬렉션",
+          title: "우리 옷이 시작되는 곳",
           lead:
-            "Chris and Christa는 정제된 실루엣, 프리미엄 소재, 그리고 절제된 자신감으로 일상 속 특별한 순간을 완성하는 모던 럭셔리 의류 브랜드입니다.",
-          ctaCollection: "컬렉션 보기",
+            "Chris and Christa는 공식 드롭 전에 실루엣, 자수, 디테일을 확인할 수 있는 럭셔리 의류 프로토타입을 공개합니다.",
+          ctaPrototype: "프로토타입 보기",
           ctaContact: "브랜드 문의",
-          lookbookTitle: "브랜드 룩북",
-          lookbookTag: "시즌 에디트 2026",
-          lookbookBody:
-            "클린한 라인, 고급 텍스처, 현대적인 럭셔리 감도를 중심으로 구성한 차분한 비주얼 방향성입니다.",
-          campaign1Title: "테일러드 코어",
-          campaign1Sub: "캠페인 I",
-          campaign2Title: "소프트 포멀",
-          campaign2Sub: "캠페인 II",
-          campaign3Title: "시티 캡슐",
-          campaign3Sub: "캠페인 III",
-          collectionTitle: "시그니처 컬렉션",
+          prototypeTitle: "의류 프로토타입",
+          prototypeTag: "디자인 개발 단계",
+          prototypeBody:
+            "이 영역은 실제 프로토타입 이미지를 위한 자리입니다. 아래 안내된 파일명으로 이미지를 저장하면 즉시 실물 비주얼로 교체됩니다.",
+          badgeOne: "프로토타입 01",
+          badgeTwo: "프로토타입 02",
+          badgeThree: "프로토타입 03",
+          badgeFour: "프로토타입 04",
+          proto1Title: "문라인 데님 자수",
+          proto1Body: "파일명: prototype-denim-sky.png",
+          proto2Title: "마더오브펄 데님",
+          proto2Body: "파일명: prototype-mother-of-pearl.png",
+          proto3Title: "시티 캡슐 에센셜",
+          proto3Body: "파일명: prototype-capsule-light.png",
+          proto4Title: "핑크 베리언트 데님",
+          proto4Body: "파일명: prototype-pink-variant.png",
+          collectionTitle: "시그니처 방향성",
           collectionBody:
-            "각 라인은 절제된 우아함, 균형 잡힌 테일러링, 그리고 오래 입을 수 있는 고급 소재를 중심으로 디자인됩니다.",
-          line1Title: "코어 테일러링",
-          line1Body: "완성도 높은 데일리 스타일을 위한 에센셜 실루엣.",
-          line2Title: "이브닝 미니멀",
-          line2Body: "우아한 나이트 스타일링을 위한 클린한 포인트 피스.",
-          line3Title: "트래블 캡슐",
-          line3Body: "현대적인 무드를 위한 가볍고 세련된 룩.",
-          craftTitle: "브랜드 원칙",
-          craftBody: "브랜드 디자인 철학은 과함보다 핏, 품질, 명확함을 우선합니다.",
-          pillar1: "균형 잡힌 테일러링과 실용적 럭셔리",
-          pillar2: "프리미엄 원단과 섬세한 디테일",
-          pillar3: "일관된 마감과 높은 착용감",
+            "모든 피스는 Chris and Christa의 정체성을 유지하면서 균형감, 착용감, 그리고 고급 마감을 중심으로 완성됩니다.",
+          line1Title: "데님 아트 라인",
+          line1Body: "캐릭터 자수와 클라우드 모티프를 고급 마감으로 구현.",
+          line2Title: "이브닝 스트럭처",
+          line2Body: "에디토리얼 및 이벤트 스타일링을 위한 구조적 실루엣.",
+          line3Title: "데일리 럭스 캡슐",
+          line3Body: "일상에서도 즐길 수 있는 프리미엄 텍스처 중심 에센셜.",
+          craftTitle: "브랜드 채널",
+          craftBody: "프로토타입 공개, 발매 일정, 스타일링 스토리를 공식 채널에서 확인하세요.",
+          pillar1: "프로토타입에서 출시까지 업데이트",
+          pillar2: "드롭 캘린더 및 런칭 공지",
+          pillar3: "비하인드 제작 스토리",
           shopTitle: "지금 쇼핑하기",
-          shopBody: "신규 드롭과 시그니처 아이템을 만나보세요.",
+          shopBody: "현재 드롭과 예정된 시그니처 피스를 확인하세요.",
           shopButton: "네이버 스토어 입장",
           contactTitle: "프레스 & 협업 문의",
-          contactBody:
-            "브랜드 파트너십 및 협업 문의는 인스타그램 DM으로 연락해 주세요.",
+          contactBody: "브랜드 파트너십 및 협업 문의는 인스타그램 DM으로 연락해 주세요.",
           contactButton: "인스타그램 문의",
           footer: "Chris and Christa | 공식 브랜드 웹사이트"
         }
