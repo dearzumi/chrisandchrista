@@ -236,7 +236,7 @@
       .prototype-grid {
         margin-top: 0.86rem;
         display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: 0.75rem;
       }
 
@@ -398,13 +398,19 @@
 
       @media (max-width: 980px) {
         .prototype-grid {
-          grid-template-columns: 1fr;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
         }
       }
 
       @media (max-width: 920px) {
         .grid,
         .cta-panels {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 620px) {
+        .prototype-grid {
           grid-template-columns: 1fr;
         }
       }
@@ -500,6 +506,20 @@
                 <div class="prototype-info">
                   <strong data-i18n="proto3Title">City Capsule Essentials</strong>
                   <span data-i18n="proto3Body">Use file: prototype-capsule-light.png</span>
+                </div>
+              </article>
+              <article class="prototype-card">
+                <div
+                  class="prototype-media"
+                  style="--prototype-image: url('prototype-pink-variant.png')"
+                  role="img"
+                  aria-label="Prototype pink variant concept"
+                >
+                  <span class="prototype-badge" data-i18n="badgeFour">Prototype 04</span>
+                </div>
+                <div class="prototype-info">
+                  <strong data-i18n="proto4Title">Pink Variant Denim</strong>
+                  <span data-i18n="proto4Body">Use file: prototype-pink-variant.png</span>
                 </div>
               </article>
             </div>
@@ -641,12 +661,15 @@
           badgeOne: "Prototype 01",
           badgeTwo: "Prototype 02",
           badgeThree: "Prototype 03",
+          badgeFour: "Prototype 04",
           proto1Title: "Moonline Denim Embroidery",
           proto1Body: "Use file: prototype-denim-sky.png",
           proto2Title: "Mother of Pearl Denim",
           proto2Body: "Use file: prototype-mother-of-pearl.png",
           proto3Title: "City Capsule Essentials",
           proto3Body: "Use file: prototype-capsule-light.png",
+          proto4Title: "Pink Variant Denim",
+          proto4Body: "Use file: prototype-pink-variant.png",
           collectionTitle: "Signature Direction",
           collectionBody:
             "Every piece balances clarity, comfort, and premium finish while staying true to the Chris and Christa identity.",
@@ -686,12 +709,15 @@
           badgeOne: "프로토타입 01",
           badgeTwo: "프로토타입 02",
           badgeThree: "프로토타입 03",
+          badgeFour: "프로토타입 04",
           proto1Title: "문라인 데님 자수",
           proto1Body: "파일명: prototype-denim-sky.png",
           proto2Title: "마더오브펄 데님",
           proto2Body: "파일명: prototype-mother-of-pearl.png",
           proto3Title: "시티 캡슐 에센셜",
           proto3Body: "파일명: prototype-capsule-light.png",
+          proto4Title: "핑크 베리언트 데님",
+          proto4Body: "파일명: prototype-pink-variant.png",
           collectionTitle: "시그니처 방향성",
           collectionBody:
             "모든 피스는 Chris and Christa의 정체성을 유지하면서 균형감, 착용감, 그리고 고급 마감을 중심으로 완성됩니다.",
