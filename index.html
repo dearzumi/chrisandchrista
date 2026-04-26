@@ -17,35 +17,64 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
     <style>
       :root {
-        --bg: #f5f3ef;
-        --paper: #fffdf9;
-        --panel: #ffffff;
-        --line: #e5dfd4;
-        --text: #1f1c19;
-        --muted: #655d54;
-        --accent: #876d45;
-        --accent-soft: #f1e8da;
-        --denim: #d9e3ef;
-        --denim-strong: #8da4bc;
-        --shadow: 0 14px 34px rgba(31, 28, 25, 0.09);
+        --bg: #f0ebe3;
+        --bg-elevated: #faf7f2;
+        --surface: #fffcf7;
+        --surface-glass: rgba(255, 252, 247, 0.78);
+        --ink: #161311;
+        --ink-soft: #3d3831;
+        --muted: #6b645a;
+        --line: rgba(32, 27, 22, 0.09);
+        --line-strong: rgba(32, 27, 22, 0.16);
+        --gold: #9a7b4f;
+        --gold-bright: #c4a574;
+        --shadow-sm: 0 4px 20px rgba(22, 19, 17, 0.06);
+        --shadow-md: 0 20px 50px rgba(22, 19, 17, 0.1);
+        --shadow-lift: 0 28px 60px rgba(22, 19, 17, 0.14);
+        --radius-pill: 100px;
+        --radius-lg: 24px;
+        --radius-md: 16px;
+        --font-display: "Cormorant Garamond", "Times New Roman", Times, serif;
+        --font-sans: "Outfit", "Segoe UI", system-ui, sans-serif;
+        --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
       }
 
       * {
         box-sizing: border-box;
       }
 
-      html,
+      html {
+        scroll-behavior: smooth;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+
       body {
         margin: 0;
         padding: 0;
-        background: linear-gradient(180deg, #f7f5f1, #f2efe9);
-        color: var(--text);
-        font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: var(--font-sans);
+        font-weight: 400;
+        font-size: 1rem;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
       }
 
       a {
@@ -53,352 +82,679 @@
       }
 
       .page {
-        width: min(1160px, 92vw);
+        width: min(1240px, 94vw);
         margin: 0 auto;
-        padding: 1rem 0 3rem;
+        padding: 1.5rem 0 4rem;
       }
 
       .frame {
-        background: var(--paper);
-        border: 1px solid var(--line);
-        border-radius: 28px;
-        overflow: hidden;
-        box-shadow: var(--shadow);
+        position: relative;
+        background: var(--bg-elevated);
+        border: 1px solid var(--line-strong);
+        border-radius: var(--radius-lg);
+        overflow: clip;
+        box-shadow: var(--shadow-md);
+      }
+
+      .frame::before {
+        content: "";
+        pointer-events: none;
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(ellipse 90% 55% at 8% 0%, rgba(196, 165, 116, 0.12), transparent 55%),
+          radial-gradient(ellipse 70% 45% at 100% 12%, rgba(120, 140, 160, 0.1), transparent 50%);
+        z-index: 0;
+      }
+
+      .frame > * {
+        position: relative;
+        z-index: 1;
       }
 
       .header {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 0.8rem;
-        padding: 0.78rem 1rem;
+        gap: 1rem;
+        padding: 1rem 1.25rem 1rem 1.4rem;
         border-bottom: 1px solid var(--line);
-        background: #fff;
+        background: var(--surface-glass);
+        backdrop-filter: blur(14px);
       }
 
       .brand-lockup {
         display: flex;
         align-items: center;
-        gap: 0.72rem;
+        gap: 0.9rem;
       }
 
       .brand-logo {
-        width: 42px;
-        height: 42px;
+        width: 44px;
+        height: 44px;
         border-radius: 50%;
         object-fit: cover;
-        border: 1px solid var(--line);
-        background: var(--denim);
+        border: 1px solid var(--line-strong);
+        background: #d4dde8;
+        box-shadow: var(--shadow-sm);
       }
 
       .brand-text {
         display: grid;
-        gap: 0.12rem;
+        gap: 0.15rem;
       }
 
       .brand-title {
         margin: 0;
-        font-family: "DM Serif Display", Georgia, serif;
-        font-size: 1.1rem;
-        line-height: 1;
+        font-family: var(--font-display);
+        font-size: 1.25rem;
+        font-weight: 500;
+        letter-spacing: 0.02em;
+        line-height: 1.05;
       }
 
       .brand-subtitle {
         margin: 0;
-        letter-spacing: 0.12em;
+        letter-spacing: 0.16em;
         text-transform: uppercase;
-        font-size: 0.63rem;
+        font-size: 0.6rem;
+        font-weight: 500;
         color: var(--muted);
       }
 
       .lang-switch {
         display: inline-flex;
         border: 1px solid var(--line);
-        border-radius: 999px;
+        border-radius: var(--radius-pill);
         overflow: hidden;
+        background: var(--surface);
+        box-shadow: var(--shadow-sm);
       }
 
       .lang-btn {
         border: 0;
         background: transparent;
         color: var(--muted);
-        padding: 0.4rem 0.82rem;
-        font-size: 0.76rem;
-        letter-spacing: 0.08em;
-        font-weight: 700;
+        padding: 0.45rem 0.9rem;
+        font-family: var(--font-sans);
+        font-size: 0.72rem;
+        letter-spacing: 0.12em;
+        font-weight: 600;
         cursor: pointer;
+        transition: background 0.2s var(--ease-out), color 0.2s var(--ease-out);
       }
 
       .lang-btn[aria-pressed="true"] {
-        background: var(--accent);
-        color: #fff;
+        background: linear-gradient(135deg, var(--gold) 0%, #7d6340 100%);
+        color: #fffcf7;
+      }
+
+      .lang-btn:focus-visible {
+        outline: 2px solid var(--gold);
+        outline-offset: 2px;
       }
 
       .hero {
-        padding: clamp(1.2rem, 3vw, 2.35rem);
+        padding: clamp(1.5rem, 4vw, 3rem) clamp(1.25rem, 4vw, 2.5rem) clamp(2rem, 5vw, 3.2rem);
         display: grid;
-        gap: 0.9rem;
+        grid-template-columns: 1fr;
+        align-items: center;
+        gap: 1.5rem;
         text-align: center;
+        position: relative;
+      }
+
+      @media (min-width: 900px) {
+        .hero {
+          grid-template-columns: 1.1fr 0.9fr;
+          text-align: left;
+          align-items: center;
+        }
+      }
+
+      .hero-copy {
+        display: flex;
+        flex-direction: column;
+        gap: 0.9rem;
+        min-width: 0;
+      }
+
+      .hero-visual {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      @media (min-width: 900px) {
+        .hero-visual {
+          justify-content: flex-end;
+        }
       }
 
       .hero-logo {
-        width: min(420px, 100%);
-        max-height: 260px;
+        width: min(100%, 400px);
+        max-height: 280px;
         object-fit: contain;
-        margin: 0 auto;
+        filter: drop-shadow(0 24px 48px rgba(22, 19, 17, 0.12));
+      }
+
+      @media (min-width: 900px) {
+        .hero-logo {
+          max-height: 320px;
+        }
       }
 
       .eyebrow {
         margin: 0;
-        letter-spacing: 0.13em;
+        letter-spacing: 0.2em;
         text-transform: uppercase;
-        font-size: 0.72rem;
-        color: var(--muted);
+        font-size: 0.65rem;
+        font-weight: 500;
+        color: var(--gold);
       }
 
       h1 {
         margin: 0;
-        font-family: "DM Serif Display", Georgia, serif;
-        font-size: clamp(2.1rem, 5vw, 4.1rem);
-        line-height: 1;
+        font-family: var(--font-display);
+        font-size: clamp(2.5rem, 5.5vw, 3.9rem);
+        font-weight: 500;
+        line-height: 1.04;
+        letter-spacing: 0.01em;
+        text-wrap: balance;
+        color: var(--ink);
+      }
+
+      .hero-divider {
+        width: 48px;
+        height: 1px;
+        background: linear-gradient(90deg, var(--gold-bright), transparent);
+        margin: 0.15rem 0 0;
+      }
+
+      @media (min-width: 900px) {
+        .hero-divider {
+          margin: 0.15rem 0 0;
+        }
       }
 
       .lead {
-        margin: 0 auto;
-        max-width: 66ch;
-        color: var(--muted);
-        line-height: 1.72;
-        font-size: clamp(1rem, 2vw, 1.1rem);
+        margin: 0;
+        max-width: 42ch;
+        color: var(--ink-soft);
+        line-height: 1.75;
+        font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+        font-weight: 300;
+      }
+
+      @media (min-width: 900px) {
+        .lead {
+          margin: 0;
+        }
       }
 
       .hero-actions {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 0.66rem;
+        gap: 0.75rem;
+        margin-top: 0.35rem;
+      }
+
+      @media (min-width: 900px) {
+        .hero-actions {
+          justify-content: flex-start;
+        }
       }
 
       .btn {
-        border-radius: 999px;
+        border-radius: var(--radius-pill);
         text-decoration: none;
-        font-weight: 700;
-        font-size: 0.9rem;
-        padding: 0.74rem 1.2rem;
+        font-weight: 500;
+        font-size: 0.85rem;
+        letter-spacing: 0.04em;
+        padding: 0.8rem 1.45rem;
+        transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
+      }
+
+      .btn:focus-visible {
+        outline: 2px solid var(--gold);
+        outline-offset: 3px;
+      }
+
+      @media (hover: hover) {
+        .btn:hover {
+          transform: translateY(-1px);
+        }
       }
 
       .btn-primary {
-        background: var(--accent);
-        color: #fff;
+        background: linear-gradient(135deg, var(--gold) 0%, #755c38 100%);
+        color: #fffcf7;
+        box-shadow: 0 8px 24px rgba(122, 98, 65, 0.35);
+      }
+
+      @media (hover: hover) {
+        .btn-primary:hover {
+          box-shadow: 0 12px 32px rgba(122, 98, 65, 0.45);
+        }
       }
 
       .btn-secondary {
-        background: #fff;
-        border: 1px solid var(--line);
+        background: var(--surface);
+        border: 1px solid var(--line-strong);
+        color: var(--ink-soft);
+        box-shadow: var(--shadow-sm);
+      }
+
+      @media (hover: hover) {
+        .btn-secondary:hover {
+          border-color: rgba(154, 123, 79, 0.45);
+        }
       }
 
       .content {
         border-top: 1px solid var(--line);
-        padding: clamp(1rem, 2.6vw, 1.7rem);
+        padding: clamp(1.5rem, 3.5vw, 2.25rem);
+        background: linear-gradient(180deg, transparent, rgba(255, 252, 247, 0.4));
       }
 
       .prototype-section {
+        position: relative;
         border: 1px solid var(--line);
-        border-radius: 18px;
-        background: var(--panel);
-        padding: clamp(1rem, 2.1vw, 1.3rem);
+        border-radius: var(--radius-md);
+        background: var(--surface);
+        padding: clamp(1.35rem, 2.5vw, 1.75rem) clamp(1.1rem, 2vw, 1.5rem);
+        box-shadow: var(--shadow-sm);
+        overflow: hidden;
+      }
+
+      .prototype-section::after {
+        content: "";
+        position: absolute;
+        top: -40%;
+        right: -15%;
+        width: min(420px, 60vw);
+        height: min(420px, 60vw);
+        background: radial-gradient(circle, rgba(196, 165, 116, 0.08) 0%, transparent 70%);
+        pointer-events: none;
       }
 
       .prototype-header {
         display: flex;
         justify-content: space-between;
-        align-items: baseline;
-        gap: 0.7rem;
+        align-items: flex-end;
+        gap: 0.8rem;
         flex-wrap: wrap;
+        position: relative;
+        z-index: 1;
       }
 
       h2,
       .section h3,
       .cta-card h4 {
         margin: 0;
-        font-family: "DM Serif Display", Georgia, serif;
-        font-size: clamp(1.5rem, 3vw, 2rem);
-        line-height: 1.06;
+        font-family: var(--font-display);
+        font-size: clamp(1.65rem, 2.8vw, 2.1rem);
+        font-weight: 500;
+        line-height: 1.08;
+        letter-spacing: 0.02em;
+        color: var(--ink);
       }
 
       .prototype-copy,
       .section p,
       .cta-card p {
-        margin: 0.52rem 0 0;
+        margin: 0.6rem 0 0;
         color: var(--muted);
-        line-height: 1.68;
+        line-height: 1.7;
+        font-size: 0.95rem;
+        font-weight: 300;
+        max-width: 56ch;
+        position: relative;
+        z-index: 1;
       }
 
       .prototype-grid {
-        margin-top: 0.86rem;
+        margin-top: 1.15rem;
+        position: relative;
+        z-index: 1;
         display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 0.75rem;
+        grid-auto-rows: minmax(200px, auto);
+        gap: 0.85rem;
       }
 
       .prototype-card {
+        position: relative;
         border: 1px solid var(--line);
         border-radius: 14px;
         overflow: hidden;
-        background: #fff;
+        background: var(--bg-elevated);
+        transition: border-color 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out);
+      }
+
+      @media (hover: hover) {
+        .prototype-card:hover {
+          border-color: rgba(154, 123, 79, 0.35);
+          box-shadow: var(--shadow-lift);
+        }
+      }
+
+      .prototype-card:nth-child(1) {
+        grid-column: 1 / 3;
+        grid-row: 1 / 3;
+      }
+
+      .prototype-card:nth-child(2) {
+        grid-column: 3;
+        grid-row: 1;
+      }
+
+      .prototype-card:nth-child(3) {
+        grid-column: 4;
+        grid-row: 1;
+      }
+
+      .prototype-card:nth-child(4) {
+        grid-column: 3;
+        grid-row: 2;
+      }
+
+      .prototype-card:nth-child(5) {
+        grid-column: 4;
+        grid-row: 2;
+      }
+
+      .prototype-card:nth-child(6) {
+        grid-column: span 2;
+        grid-row: 3;
+      }
+
+      .prototype-card:nth-child(7) {
+        grid-column: span 2;
+        grid-row: 3;
       }
 
       .prototype-media {
-        min-height: 210px;
-        background-color: var(--denim);
-        background-image:
-          linear-gradient(170deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0)),
+        min-height: 200px;
+        background-color: #dce4ec;
+        background-image: linear-gradient(165deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0) 50%),
           var(--prototype-image);
         background-size: cover;
         background-position: center;
         position: relative;
+        transition: transform 0.6s var(--ease-out);
+      }
+
+      .prototype-card:nth-child(1) .prototype-media {
+        min-height: 100%;
+        aspect-ratio: auto;
+        height: 100%;
+        min-height: 280px;
+      }
+
+      @media (hover: hover) {
+        .prototype-card:hover .prototype-media {
+          transform: scale(1.03);
+        }
+      }
+
+      .prototype-card:nth-child(1) {
+        min-height: 360px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .prototype-card:nth-child(1) .prototype-media {
+        flex: 1;
+      }
+
+      .prototype-media::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.08) 0%, transparent 40%, rgba(0, 0, 0, 0.12) 100%);
+        pointer-events: none;
+        opacity: 0.9;
       }
 
       .prototype-badge {
         position: absolute;
-        left: 0.62rem;
-        top: 0.62rem;
-        padding: 0.26rem 0.5rem;
-        border-radius: 999px;
-        border: 1px solid rgba(255, 255, 255, 0.6);
-        background: rgba(255, 255, 255, 0.75);
-        color: #4d4337;
-        font-size: 0.66rem;
-        letter-spacing: 0.08em;
+        left: 0.7rem;
+        top: 0.7rem;
+        z-index: 2;
+        padding: 0.32rem 0.7rem;
+        border-radius: var(--radius-pill);
+        border: 1px solid rgba(255, 255, 255, 0.55);
+        background: rgba(255, 252, 247, 0.88);
+        color: var(--ink-soft);
+        font-size: 0.6rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
         text-transform: uppercase;
+        backdrop-filter: blur(6px);
       }
 
       .prototype-info {
-        padding: 0.7rem;
+        padding: 0.85rem 0.9rem 1rem;
+        background: var(--surface);
+        border-top: 1px solid var(--line);
       }
 
       .prototype-info strong {
         display: block;
-        font-family: "DM Serif Display", Georgia, serif;
-        font-size: 1.12rem;
+        font-family: var(--font-display);
+        font-size: 1.15rem;
+        font-weight: 500;
+        letter-spacing: 0.02em;
+        color: var(--ink);
       }
 
       .prototype-info span {
         display: block;
-        margin-top: 0.26rem;
+        margin-top: 0.3rem;
         color: var(--muted);
-        font-size: 0.9rem;
+        font-size: 0.82rem;
+        font-weight: 300;
+        line-height: 1.5;
       }
 
       .grid {
-        margin-top: 0.95rem;
+        margin-top: 1.15rem;
         display: grid;
-        grid-template-columns: 1.24fr 1fr;
-        gap: 0.9rem;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 1rem;
       }
 
       .section {
         border: 1px solid var(--line);
-        border-radius: 16px;
-        background: #fff;
-        padding: 1rem;
+        border-radius: var(--radius-md);
+        background: var(--surface);
+        padding: 1.2rem 1.15rem;
+        box-shadow: var(--shadow-sm);
       }
 
       .collection-list {
-        margin-top: 0.72rem;
+        margin-top: 0.85rem;
         display: grid;
-        gap: 0.6rem;
+        gap: 0.65rem;
       }
 
       .collection {
         border: 1px solid var(--line);
         border-radius: 12px;
-        background: #fffdf9;
-        padding: 0.7rem;
+        background: var(--bg-elevated);
+        padding: 0.9rem 0.95rem;
+        transition: border-color 0.25s var(--ease-out), background 0.25s var(--ease-out);
+      }
+
+      @media (hover: hover) {
+        .collection:hover {
+          border-color: rgba(154, 123, 79, 0.28);
+          background: #fff;
+        }
       }
 
       .collection strong {
         display: block;
+        font-size: 0.92rem;
+        font-weight: 500;
+        letter-spacing: 0.02em;
+        color: var(--ink);
       }
 
       .collection span {
         display: block;
-        margin-top: 0.22rem;
+        margin-top: 0.3rem;
         color: var(--muted);
-        font-size: 0.92rem;
+        font-size: 0.86rem;
+        font-weight: 300;
+        line-height: 1.55;
       }
 
       .pillars {
-        margin: 0.72rem 0 0;
+        margin: 0.85rem 0 0;
         padding: 0;
         list-style: none;
         display: grid;
-        gap: 0.54rem;
+        gap: 0.6rem;
       }
 
       .pillars li {
-        border-left: 2px solid #d6c3a2;
-        padding-left: 0.58rem;
-        color: #544b40;
-        line-height: 1.56;
+        border-left: 2px solid var(--gold-bright);
+        padding-left: 0.7rem;
+        color: var(--ink-soft);
+        line-height: 1.6;
+        font-size: 0.9rem;
+        font-weight: 300;
       }
 
       .socials {
-        margin-top: 0.76rem;
+        margin-top: 0.85rem;
         display: grid;
-        gap: 0.54rem;
+        gap: 0.5rem;
       }
 
       .social {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
         text-decoration: none;
         border: 1px solid var(--line);
-        border-radius: 10px;
-        background: #fff;
-        padding: 0.62rem 0.68rem;
+        border-radius: 12px;
+        background: var(--bg-elevated);
+        padding: 0.7rem 0.9rem;
+        font-size: 0.9rem;
+        transition: border-color 0.25s var(--ease-out), transform 0.25s var(--ease-out);
+      }
+
+      .social::after {
+        content: "→";
+        color: var(--gold);
+        font-size: 0.85rem;
+        opacity: 0.6;
+        transition: transform 0.25s var(--ease-out), opacity 0.25s var(--ease-out);
+      }
+
+      @media (hover: hover) {
+        .social:hover {
+          border-color: rgba(154, 123, 79, 0.35);
+          background: #fff;
+        }
+        .social:hover::after {
+          transform: translateX(3px);
+          opacity: 1;
+        }
       }
 
       .social strong {
         display: block;
+        font-weight: 500;
       }
 
       .social span {
         display: block;
-        margin-top: 0.18rem;
+        margin-top: 0.1rem;
         color: var(--muted);
+        font-size: 0.8rem;
+        font-weight: 300;
       }
 
       .cta-panels {
-        margin-top: 0.95rem;
+        margin-top: 1.15rem;
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 0.8rem;
+        gap: 1rem;
       }
 
       .cta-card {
+        position: relative;
         border: 1px solid var(--line);
-        border-radius: 16px;
-        background: var(--accent-soft);
-        padding: 1rem;
+        border-radius: var(--radius-md);
+        background: linear-gradient(145deg, #f8f0e4 0%, #f3e9dc 100%);
+        padding: 1.2rem 1.15rem;
+        overflow: hidden;
+      }
+
+      .cta-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 140px;
+        height: 140px;
+        background: radial-gradient(circle at 100% 0%, rgba(196, 165, 116, 0.35), transparent 70%);
+        pointer-events: none;
+      }
+
+      .cta-card h4,
+      .cta-card p,
+      .cta-card .btn {
+        position: relative;
+        z-index: 1;
+      }
+
+      .cta-card p {
+        font-size: 0.9rem;
       }
 
       .cta-card .btn {
-        margin-top: 0.7rem;
+        margin-top: 0.85rem;
         display: inline-block;
       }
 
       .footer {
-        margin-top: 0.9rem;
-        padding-top: 0.9rem;
+        margin-top: 1.35rem;
+        padding-top: 1.35rem;
         border-top: 1px solid var(--line);
         text-align: center;
         color: var(--muted);
-        font-size: 0.9rem;
-        letter-spacing: 0.04em;
+        font-size: 0.78rem;
+        font-weight: 400;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
       }
 
       @media (max-width: 980px) {
         .prototype-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
+          grid-auto-rows: auto;
+        }
+        .prototype-card:nth-child(n) {
+          grid-column: auto;
+          grid-row: auto;
+        }
+        .prototype-card:nth-child(1) {
+          grid-column: 1 / -1;
+        }
+        .prototype-card:nth-child(1) {
+          min-height: 0;
+        }
+        .prototype-card:nth-child(1) .prototype-media {
+          min-height: 260px;
+          aspect-ratio: 4 / 3;
         }
       }
 
@@ -413,6 +769,16 @@
         .prototype-grid {
           grid-template-columns: 1fr;
         }
+        .hero-divider {
+          margin-left: auto;
+          margin-right: auto;
+        }
+        .lang-switch {
+          flex-shrink: 0;
+        }
+        .header {
+          padding: 0.85rem 1rem;
+        }
       }
     </style>
   </head>
@@ -421,37 +787,34 @@
       <div class="frame">
         <header class="header">
           <div class="brand-lockup">
-            <img src="logo.png" alt="Chris and Christa logo mark" class="brand-logo" />
+            <img src="logo.png" alt="Chris and Christa logo mark" class="brand-logo" width="44" height="44" />
             <div class="brand-text">
               <p class="brand-title">Chris and Christa</p>
               <p class="brand-subtitle" data-i18n="brandMini">Luxury Prototype Studio</p>
             </div>
           </div>
           <div class="lang-switch" role="group" aria-label="Language selector">
-            <button class="lang-btn" type="button" data-lang="en" aria-pressed="true">
-              EN
-            </button>
-            <button class="lang-btn" type="button" data-lang="ko" aria-pressed="false">
-              KR
-            </button>
+            <button class="lang-btn" type="button" data-lang="en" aria-pressed="true">EN</button>
+            <button class="lang-btn" type="button" data-lang="ko" aria-pressed="false">KR</button>
           </div>
         </header>
 
         <section class="hero">
-          <img src="logo.png" alt="Chris and Christa logo" class="hero-logo" />
-          <p class="eyebrow" data-i18n="eyebrow">Official Prototype Collection</p>
-          <h1 data-i18n="title">Where Our Clothes Begin</h1>
-          <p class="lead" data-i18n="lead">
-            Chris and Christa shares early luxury prototypes so our community can see the shape,
-            embroidery, and details before official drops.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#prototypes" data-i18n="ctaPrototype">
-              View Prototypes
-            </a>
-            <a class="btn btn-secondary" href="#contact" data-i18n="ctaContact">
-              Contact Brand Team
-            </a>
+          <div class="hero-copy">
+            <p class="eyebrow" data-i18n="eyebrow">Official Prototype Collection</p>
+            <h1 data-i18n="title">Where Our Clothes Begin</h1>
+            <div class="hero-divider" aria-hidden="true"></div>
+            <p class="lead" data-i18n="lead">
+              Chris and Christa shares early luxury prototypes so our community can see the shape,
+              embroidery, and details before official drops.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#prototypes" data-i18n="ctaPrototype">View Prototypes</a>
+              <a class="btn btn-secondary" href="#contact" data-i18n="ctaContact">Contact Brand Team</a>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <img src="logo.png" alt="" class="hero-logo" role="presentation" />
           </div>
         </section>
 
@@ -613,8 +976,10 @@
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <strong>Instagram</strong>
-                  <span>@chrisandchristaofficial</span>
+                  <div>
+                    <strong>Instagram</strong>
+                    <span>@chrisandchristaofficial</span>
+                  </div>
                 </a>
                 <a
                   class="social"
@@ -622,8 +987,10 @@
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <strong>TikTok</strong>
-                  <span>@chrisandchrista</span>
+                  <div>
+                    <strong>TikTok</strong>
+                    <span>@chrisandchrista</span>
+                  </div>
                 </a>
                 <a
                   class="social"
@@ -631,17 +998,21 @@
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <strong>YouTube</strong>
-                  <span>@chrisandchrista</span>
+                  <div>
+                    <strong>YouTube</strong>
+                    <span>@chrisandchrista</span>
+                  </div>
                 </a>
                 <a
                   class="social"
-                  href="https://smartstore.naver.com/chriandchrista"
+                  href="https://smartstore.naver.com/chrisandchrista"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <strong>Naver Store</strong>
-                  <span>chriandchrista</span>
+                  <div>
+                    <strong>Naver Store</strong>
+                    <span>chrisandchrista</span>
+                  </div>
                 </a>
               </div>
             </section>
@@ -653,7 +1024,7 @@
               <p data-i18n="shopBody">Explore current drops and upcoming signature pieces.</p>
               <a
                 class="btn btn-primary"
-                href="https://smartstore.naver.com/chriandchrista"
+                href="https://smartstore.naver.com/chrisandchrista"
                 target="_blank"
                 rel="noreferrer"
                 data-i18n="shopButton"
